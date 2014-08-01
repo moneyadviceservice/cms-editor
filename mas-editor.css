@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica;
+}
+
+.header {
+  background: #000;
+}
+
+.header h1 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  padding: 10px;
+  font-weight: normal;
+}
+
+.toolbar {
+  padding-bottom: 5px;
+}
+
+.cms-chrome {
+  background-color: #242424;
+  background: -webkit-gradient(linear, left bottom, left top, from(#242424), to(rgba(36, 36, 36, 0.85)));
+  background: -webkit-linear-gradient(bottom, #242424, rgba(36, 36, 36, 0.85));
+  background: linear-gradient(bottom, #242424, rgba(36, 36, 36, 0.85));
+}
+
+.toolbar-inner {
+  display: table;
+  width: 100%;
+}
+
+.toolbar-inline .toolbar-inner {
+  border: 1px solid #000;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 3px #000;
+  box-shadow: 0 0 3px #000;
+  white-space: nowrap;
+}
+
+/*.toolbar:after {
+  border-style: solid;
+  border-width: 20px 20px 0 20px;
+  border-color: #000000 transparent transparent transparent;
+  content: '';
+  height: 0;
+  position: absolute;
+  top: 100%;
+  width: 0;
+}*/
+
+button {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  font-size: 13px;
+  display: table-cell;
+  margin: 0;
+  padding: 7px 10px;
+  position: relative;
+  font-weight: bold;
+}
+
+button:before,
+button:after {
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+button:before {
+  background: #000;
+  right: 1px;
+}
+button:after {
+  background: #444;
+  right: 0;
+}
+
+button:last-child:before,
+button:last-child:after {
+  display: none;
+}
+
+button.active {
+  background: black;
+  color: white;
+}
+
+button[disabled] {
+  opacity: .5;
+}
+
+.scribe {
+  overflow: auto;
+  margin: 0 auto 1em;
+  border: solid hsl(0, 0%, 80%);
+  border-width: 1px 0 0;
+  padding: 0.5em;
+  width: 100%;
+  max-width: 960px;
+}
+
+.scribe:focus {
+  outline: none;
+}
+
+.scribe-html {
+  width: 100%;
+  margin: 2em auto 1em;
+  font-family: monospace;
+  border: 1px solid hsl(0, 0%, 80%);
+  padding: 0.5em;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* Dough overrides*/
+
+.ns-mortgage-calc .frontend-assets h1 {
+  margin-top: 20px;
+}
+
+/* ICE */
+
+.ins {
+  border-bottom: 1px dashed;
+}
+
+.ins.cts-1 {
+  color: green;
+  border-color: green;
+}
+
+.ins.cts-2 {
+  color: blue;
+  border-color: blue;
+}
+
+.ins.cts-3 {
+  color: pink;
+  border-color: pink;
+}
+
+.ins.cts-4 {
+  color: aquamarine;
+  border-color: aquamarine;
+}
+
