@@ -134,30 +134,3 @@ p {
 .ns-mortgage-calc .frontend-assets h1 {
   margin-top: 20px;
 }
-
-/* ICE */
-
-.ins {
-  border-bottom: 1px dashed;
-}
-
-.ins.cts-1 {
-  color: green;
-  border-color: green;
-}
-
-.ins.cts-2 {
-  color: blue;
-  border-color: blue;
-}
-
-.ins.cts-3 {
-  color: pink;
-  border-color: pink;
-}
-
-.ins.cts-4 {
-  color: aquamarine;
-  border-color: aquamarine;
-}
-

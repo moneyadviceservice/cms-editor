@@ -115,15 +115,6 @@ require({
       },
       div: {
         'class': true
-      },
-
-      // span has been included to enable ICE integration
-      span : {
-        'class': true,
-        'data-cid': true,
-        'data-time': true,
-        'data-username': true,
-        'title': true
       }
     }
   }));
@@ -135,21 +126,4 @@ require({
   // } else {
   //   scribe.setContent('Hello, World!');
   // }
-
-  // ICE integration
-  // It's not AMD
-  var text = document.querySelector('.scribe');
-  window.tracker = new ice.InlineChangeEditor({
-    element: text,
-    handleEvents: true,
-    currentUser: {id: 11, name: 'Geoffrey Jellineck'},
-    plugins : ['IceAddTitlePlugin', 'IceSmartQuotesPlugin', 'IceEmdashPlugin', {
-        name : 'IceCopyPastePlugin',
-        settings : {
-          pasteType : 'formattedClean',
-          preserve : 'p,a[href],i,em,b,span,ul,ol,li,hr'
-        }
-      }
-    ]
-  }).startTracking();
 });
