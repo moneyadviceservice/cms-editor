@@ -35,8 +35,6 @@ define('scribe-plugin-inserttable-command',[],function () {
           return node.nodeName === 'PRE';
         });
 
-        console.log('INSIDE PRE', preNode);
-
         return scribe.api.Command.prototype.queryEnabled.apply(this, arguments)
           && scribe.allowsBlockElements() && ! preNode;
       };
