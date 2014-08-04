@@ -28,6 +28,12 @@ body {
   text-align: center;
 }
 
+.toolbar.is-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .cms-chrome {
   background-color: #242424;
   background: -webkit-gradient(linear, left bottom, left top, from(#242424), to(rgba(36, 36, 36, 0.85)));

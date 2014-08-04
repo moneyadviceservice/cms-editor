@@ -15,6 +15,7 @@ require({
     'scribe-plugin-smart-lists': './bower_components/scribe-plugin-smart-lists/scribe-plugin-smart-lists',
     'scribe-plugin-toolbar': './bower_components/scribe-plugin-toolbar/scribe-plugin-toolbar',
     'scribe-plugin-inline-toolbar': './bower_components/scribe-plugin-inline-toolbar/scribe-plugin-inline-toolbar',
+    'scribe-plugin-sticky-toolbar': './bower_components/scribe-plugin-sticky-toolbar/scribe-plugin-sticky-toolbar'
   }
 }, [
   'scribe',
@@ -31,7 +32,8 @@ require({
   'scribe-plugin-sanitizer',
   'scribe-plugin-smart-lists',
   'scribe-plugin-toolbar',
-  'scribe-plugin-inline-toolbar'
+  'scribe-plugin-inline-toolbar',
+  'scribe-plugin-sticky-toolbar'
 ], function (
   Scribe,
   scribePluginBlockquoteCommand,
@@ -47,7 +49,8 @@ require({
   scribePluginSanitizer,
   scribePluginSmartLists,
   scribePluginToolbar,
-  scribePluginInlineToolbar
+  scribePluginInlineToolbar,
+  scribePluginStickyToolbar
 ) {
 
   'use strict';
@@ -93,7 +96,8 @@ require({
   scribe.use(scribePluginInsertImageCommand());
   scribe.use(scribePluginInsertTableCommand());
   scribe.use(scribePluginInsertHTMLCommand());
-  scribe.use(scribePluginToolbar(elToolbar));
+  // scribe.use(scribePluginToolbar(elToolbar));
+  scribe.use(scribePluginStickyToolbar(elToolbar));
   // scribe.use(scribePluginInlineToolbar(elToolbar));
   // scribe.use(scribePluginSmartLists());
   // scribe.use(scribePluginCurlyQuotes());
