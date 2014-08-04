@@ -1,61 +1,55 @@
-define(['scribe-common/src/element'], function (element) {
+define('scribe-plugin-inserthtml-command',[],function () {
 
   /**
-   * This plugin modifies the `unlink` command so that, when the user's
-   * selection is collapsed, remove the containing A.
+   * This plugin adds a command for inserting Markdown snippets
    */
 
-  'use strict';
   return function () {
     return function (scribe) {
-      console.log('var1');
-      var insertHTMLCommand = new scribe.api.Command('insertHTML');
+      var insertSnippetCommand = new scribe.api.Command('insertHTML');
+      insertSnippetCommand.nodeName = 'PRE';
 
-      insertHTMLCommand.execute = function () {
-        console.log('execute');
-        scribe.insertHTML('some html');
-        // command.execute();
+      insertSnippetCommand.execute = function () {
+        var htmlSnippet = '<pre>'
+          + '$callout\n'
+          + '^ Title\n'
+          + '^^ Content can be added here\n'
+          + '$'
+          '</pre>';
+
+        scribe.api.SimpleCommand.prototype.execute.call(this, htmlSnippet);
       };
 
-      insertHTMLCommand.queryEnabled = function () {
-        // var command = scribe.getCommand('insertHTML').execute('some html');
-        return command.queryEnabled();
-      };
-
-      insertHTMLCommand.queryState = function () {
-        console.log('state');
+     insertSnippetCommand.queryState = function () {
+        /**
+         * We override the native `document.queryCommandState` for links because
+         * the `createLink` and `unlink` commands are not supported.
+         * As per: http://jsbin.com/OCiJUZO/1/edit?js,console,output
+         */
         var selection = new scribe.api.Selection();
-        var blockquoteElement = selection.getContaining(function (element) {
-          return element.nodeName === 'BLOCKQUOTE';
+        return !! selection.getContaining(function (node) {
+          return node.nodeName === this.nodeName;
+        }.bind(this));
+      };
+
+      /**
+       * All: Executing a heading command inside a list element corrupts the markup.
+       * Disabling for now.
+       */
+      insertSnippetCommand.queryEnabled = function () {
+        var selection = new scribe.api.Selection();
+        var preNode = selection.getContaining(function (node) {
+          return node.nodeName === 'PRE';
         });
 
-        return scribe.allowsBlockElements() && !! blockquoteElement;
+        return scribe.api.Command.prototype.queryEnabled.apply(this, arguments)
+          && scribe.allowsBlockElements() && ! preNode;
       };
 
-      scribe.commands.insertHTML = insertHTMLCommand;
-
-      // /**
-       // * If the paragraphs option is set to true, we unapply the blockquote on
-      //  * <enter> keypresses if the caret is on a new line.
-      //  */
-      // if (scribe.allowsBlockElements()) {
-      //   scribe.el.addEventListener('keydown', function (event) {
-      //     if (event.keyCode === 13) { // enter
-
-      //       var command = scribe.getCommand('blockquote');
-      //       if (command.queryState()) {
-      //         var selection = new scribe.api.Selection();
-      //         if (selection.isCaretOnNewLine()) {
-      //           event.preventDefault();
-      //           command.execute();
-      //         }
-      //       }
-      //     }
-      //   });
-      // }
+      scribe.commands.insertSomething = insertSnippetCommand;
     };
   };
 
 });
 
-//# sourceMappingURL=scribe-plugin-blockquote-command.js.map
+///# sourceMappingURL=scribe-plugin-inserthtml-command.js.map
