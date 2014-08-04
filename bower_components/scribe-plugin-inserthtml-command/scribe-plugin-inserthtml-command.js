@@ -10,11 +10,11 @@ define('scribe-plugin-inserthtml-command',[],function () {
       insertSnippetCommand.nodeName = 'PRE';
 
       insertSnippetCommand.execute = function () {
-        var htmlSnippet = '<pre>'
+        var htmlSnippet = '<pre>\n'
           + '$callout\n'
           + '^ Title\n'
           + '^^ Content can be added here\n'
-          + '$'
+          + '$\n'
           '</pre>';
 
         scribe.api.SimpleCommand.prototype.execute.call(this, htmlSnippet);
