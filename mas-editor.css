@@ -25,6 +25,7 @@ body {
 
 .toolbar {
   padding-bottom: 5px;
+  text-align: center;
 }
 
 .cms-chrome {
@@ -62,7 +63,7 @@ button {
   background-color: transparent;
   border: 0;
   color: white;
-  font-size: 13px;
+  font-size: 16px;
   display: table-cell;
   margin: 0;
   padding: 7px 10px;
@@ -107,7 +108,7 @@ button[disabled] {
   overflow: auto;
   margin: 0 auto 1em;
   border: solid hsl(0, 0%, 80%);
-  border-width: 1px 0 0;
+  border-width: 0 0 1px;
   padding: 0.5em;
   width: 100%;
   max-width: 960px;
