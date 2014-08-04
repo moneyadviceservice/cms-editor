@@ -9,10 +9,12 @@ require({
     'scribe-plugin-keyboard-shortcuts': './bower_components/scribe-plugin-keyboard-shortcuts/scribe-plugin-keyboard-shortcuts',
     'scribe-plugin-link-prompt-command': './bower_components/scribe-plugin-link-prompt-command/scribe-plugin-link-prompt-command',
     'scribe-plugin-insertimage-command': './bower_components/scribe-plugin-insertimage-command/scribe-plugin-insertimage-command',
+    'scribe-plugin-inserttable-command': './bower_components/scribe-plugin-inserttable-command/scribe-plugin-inserttable-command',
+    'scribe-plugin-inserthtml-command': './bower_components/scribe-plugin-inserthtml-command/scribe-plugin-inserthtml-command',
     'scribe-plugin-sanitizer': './bower_components/scribe-plugin-sanitizer/scribe-plugin-sanitizer',
     'scribe-plugin-smart-lists': './bower_components/scribe-plugin-smart-lists/scribe-plugin-smart-lists',
     'scribe-plugin-toolbar': './bower_components/scribe-plugin-toolbar/scribe-plugin-toolbar',
-    'scribe-plugin-inline-toolbar': './bower_components/scribe-plugin-inline-toolbar/scribe-plugin-inline-toolbar'
+    'scribe-plugin-inline-toolbar': './bower_components/scribe-plugin-inline-toolbar/scribe-plugin-inline-toolbar',
   }
 }, [
   'scribe',
@@ -24,6 +26,8 @@ require({
   'scribe-plugin-keyboard-shortcuts',
   'scribe-plugin-link-prompt-command',
   'scribe-plugin-insertimage-command',
+  'scribe-plugin-inserttable-command',
+  'scribe-plugin-inserthtml-command',
   'scribe-plugin-sanitizer',
   'scribe-plugin-smart-lists',
   'scribe-plugin-toolbar',
@@ -38,6 +42,8 @@ require({
   scribePluginKeyboardShortcuts,
   scribePluginLinkPromptCommand,
   scribePluginInsertImageCommand,
+  scribePluginInsertTableCommand,
+  scribePluginInsertHTMLCommand,
   scribePluginSanitizer,
   scribePluginSmartLists,
   scribePluginToolbar,
@@ -46,7 +52,7 @@ require({
 
   'use strict';
 
-  var scribe = new Scribe(document.querySelector('.scribe'), { allowBlockElements: true });
+  var scribe = new Scribe(document.querySelector('.scribe'), { allowBlockElements: true, isDebugModeEnabled: true });
 
   scribe.on('content-changed', updateHTML);
 
@@ -85,10 +91,12 @@ require({
   scribe.use(scribePluginIntelligentUnlinkCommand());
   scribe.use(scribePluginLinkPromptCommand());
   scribe.use(scribePluginInsertImageCommand());
-  // scribe.use(scribePluginToolbar(elToolbar));
-  scribe.use(scribePluginInlineToolbar(elToolbar));
-  scribe.use(scribePluginSmartLists());
-  scribe.use(scribePluginCurlyQuotes());
+  scribe.use(scribePluginInsertTableCommand());
+  scribe.use(scribePluginInsertHTMLCommand());
+  scribe.use(scribePluginToolbar(elToolbar));
+  // scribe.use(scribePluginInlineToolbar(elToolbar));
+  // scribe.use(scribePluginSmartLists());
+  // scribe.use(scribePluginCurlyQuotes());
   scribe.use(scribePluginKeyboardShortcuts(commandsToKeyboardShortcutsMap));
 
   // Formatters
@@ -115,15 +123,12 @@ require({
       },
       div: {
         'class': true
-      }
+      },
+      pre: {}
     }
   }));
-  scribe.use(scribePluginFormatterPlainTextConvertNewLinesToHtml());
+  // scribe.use(scribePluginFormatterPlainTextConvertNewLinesToHtml());
   updateHTML();
+  scribe.setContent(document.querySelector('#initial-content').value);
 
-  // if (scribe.allowsBlockElements()) {
-  //   scribe.setContent('<p>Hello, World!</p>');
-  // } else {
-  //   scribe.setContent('Hello, World!');
-  // }
 });
