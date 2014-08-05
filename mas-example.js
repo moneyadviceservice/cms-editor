@@ -1,5 +1,8 @@
 require({
   paths: {
+    'marked': './bower_components/marked/lib/marked',
+    'toMarkdown': './bower_components/to-markdown/to-markdown',
+    'source-converter': './bower_components/source-converter/source-converter',
     'scribe': './bower_components/scribe/scribe',
     'scribe-plugin-blockquote-command': './bower_components/scribe-plugin-blockquote-command/scribe-plugin-blockquote-command',
     'scribe-plugin-curly-quotes': './bower_components/scribe-plugin-curly-quotes/scribe-plugin-curly-quotes',
@@ -15,9 +18,12 @@ require({
     'scribe-plugin-smart-lists': './bower_components/scribe-plugin-smart-lists/scribe-plugin-smart-lists',
     'scribe-plugin-toolbar': './bower_components/scribe-plugin-toolbar/scribe-plugin-toolbar',
     'scribe-plugin-inline-toolbar': './bower_components/scribe-plugin-inline-toolbar/scribe-plugin-inline-toolbar',
-    'scribe-plugin-sticky-toolbar': './bower_components/scribe-plugin-sticky-toolbar/scribe-plugin-sticky-toolbar'
+    'scribe-plugin-sticky-toolbar': './bower_components/scribe-plugin-sticky-toolbar/scribe-plugin-sticky-toolbar',
   }
 }, [
+  'marked',
+  'toMarkdown',
+  'source-converter',
   'scribe',
   'scribe-plugin-blockquote-command',
   'scribe-plugin-curly-quotes',
@@ -35,6 +41,9 @@ require({
   'scribe-plugin-inline-toolbar',
   'scribe-plugin-sticky-toolbar'
 ], function (
+  marked,
+  toMarkdown,
+  convertSource,
   Scribe,
   scribePluginBlockquoteCommand,
   scribePluginCurlyQuotes,
@@ -55,21 +64,33 @@ require({
 
   'use strict';
 
-  var scribe = new Scribe(document.querySelector('.scribe'), { allowBlockElements: true, isDebugModeEnabled: true });
-
-  scribe.on('content-changed', updateHTML);
-
-  function updateHTML() {
-    document.querySelector('.scribe-html').value = scribe.getHTML();
-  }
+  var scribe,
+      ctrlKey,
+      commandsToKeyboardShortcutsMap,
+      editMode,
+      elToolbar,
+      elMarkdownEditor = document.querySelector('.js-editor-markdown'),
+      elMarkdownEditorContent = document.querySelector('.js-editor-markdown-content'),
+      elHTMLEditor = document.querySelector('.js-editor-html'),
+      elEditModeBtn = document.querySelector('.js-select-edit-mode'),
+      classActive = 'is-active';
 
   /**
-   * Keyboard shortcuts
+   * Scribe setup
    */
 
-  var ctrlKey = function (event) { return event.metaKey || event.ctrlKey; };
+  scribe = new Scribe(document.querySelector('.scribe'), {
+    allowBlockElements: true,
+    isDebugModeEnabled: true
+  });
 
-  var commandsToKeyboardShortcutsMap = Object.freeze({
+  /**
+   * Scribe Keyboard shortcuts
+   */
+
+  ctrlKey = function (event) { return event.metaKey || event.ctrlKey; };
+
+  commandsToKeyboardShortcutsMap = Object.freeze({
     bold: function (event) { return event.metaKey && event.keyCode === 66; }, // b
     italic: function (event) { return event.metaKey && event.keyCode === 73; }, // i
     strikeThrough: function (event) { return event.altKey && event.shiftKey && event.keyCode === 83; }, // s
@@ -82,26 +103,28 @@ require({
   });
 
   /**
-   * Plugins
+   * Scribe Plugins
    */
 
-  var elToolbar = document.querySelector('.toolbar');
+  elToolbar = document.querySelector('.toolbar');
 
   scribe.use(scribePluginBlockquoteCommand());
   scribe.use(scribePluginHeadingCommand(1));
   scribe.use(scribePluginHeadingCommand(2));
   scribe.use(scribePluginHeadingCommand(3));
+  scribe.use(scribePluginHeadingCommand(4));
   scribe.use(scribePluginIntelligentUnlinkCommand());
   scribe.use(scribePluginLinkPromptCommand());
   scribe.use(scribePluginInsertImageCommand());
   scribe.use(scribePluginInsertTableCommand());
   scribe.use(scribePluginInsertHTMLCommand());
-  // scribe.use(scribePluginToolbar(elToolbar));
+  scribe.use(scribePluginKeyboardShortcuts(commandsToKeyboardShortcutsMap));
   scribe.use(scribePluginStickyToolbar(elToolbar));
+  scribe.use(scribePluginFormatterPlainTextConvertNewLinesToHtml());
+  // scribe.use(scribePluginToolbar(elToolbar));
   // scribe.use(scribePluginInlineToolbar(elToolbar));
   // scribe.use(scribePluginSmartLists());
   // scribe.use(scribePluginCurlyQuotes());
-  scribe.use(scribePluginKeyboardShortcuts(commandsToKeyboardShortcutsMap));
 
   // Formatters
   scribe.use(scribePluginSanitizer({
@@ -122,17 +145,54 @@ require({
       h1: {},
       h2: {},
       h3: {},
+      h4: {},
+      h5: {},
+      h6: {},
       img: {
         src: true
-      },
-      div: {
-        'class': true
       },
       pre: {}
     }
   }));
-  // scribe.use(scribePluginFormatterPlainTextConvertNewLinesToHtml());
-  updateHTML();
-  scribe.setContent(document.querySelector('#initial-content').value);
 
+  /**
+   * Edit mode switcher
+   */
+
+  function setupEditModeButton() {
+    elEditModeBtn.addEventListener('click', function(){
+      selectEditMode(editMode);
+    });
+  }
+
+  function selectEditMode(mode) {
+    switch(mode) {
+      case 'markdown':
+        elMarkdownEditor.classList.add(classActive);
+        elHTMLEditor.classList.remove(classActive);
+        updateMarkdownEditor(scribe.getHTML());
+        elMarkdownEditorContent.focus();
+        editMode = 'html';
+        break;
+      case 'html':
+        elHTMLEditor.classList.add(classActive);
+        elMarkdownEditor.classList.remove(classActive);
+        updateScribe(elMarkdownEditorContent.value);
+        scribe.el.focus();
+        editMode = 'markdown';
+        break;
+    }
+  }
+
+  function updateMarkdownEditor(html) {
+    elMarkdownEditorContent.value = convertSource.toMASMarkdown(html);
+    elMarkdownEditorContent.style.height = elMarkdownEditorContent.scrollHeight + 'px';
+  }
+
+  function updateScribe(markdown) {
+    scribe.setContent(convertSource.toHTML(markdown));
+  }
+
+  setupEditModeButton();
+  selectEditMode('html');
 });

@@ -1,3 +1,5 @@
+/* Base */
+
 * {
   box-sizing: border-box;
 }
@@ -11,6 +13,8 @@ body {
   font-family: Helvetica;
 }
 
+/* Header */
+
 .header {
   background: #000;
 }
@@ -23,6 +27,9 @@ body {
   font-weight: normal;
 }
 
+
+/* Toolbar */
+
 .toolbar {
   padding-bottom: 5px;
   text-align: center;
@@ -32,13 +39,6 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-}
-
-.cms-chrome {
-  background-color: #242424;
-  background: -webkit-gradient(linear, left bottom, left top, from(#242424), to(rgba(36, 36, 36, 0.85)));
-  background: -webkit-linear-gradient(bottom, #242424, rgba(36, 36, 36, 0.85));
-  background: linear-gradient(bottom, #242424, rgba(36, 36, 36, 0.85));
 }
 
 .toolbar-inner {
@@ -54,18 +54,12 @@ body {
   white-space: nowrap;
 }
 
-/*.toolbar:after {
-  border-style: solid;
-  border-width: 20px 20px 0 20px;
-  border-color: #000000 transparent transparent transparent;
-  content: '';
-  height: 0;
-  position: absolute;
-  top: 100%;
-  width: 0;
-}*/
+.toolbar__btn--edit {
+  cursor: pointer;
+  float: right;
+}
 
-button {
+.toolbar button {
   background-color: transparent;
   border: 0;
   color: white;
@@ -77,8 +71,8 @@ button {
   font-weight: bold;
 }
 
-button:before,
-button:after {
+.toolbar button:before,
+.toolbar button:after {
   content: '';
   display: block;
   height: 100%;
@@ -87,57 +81,91 @@ button:after {
   width: 1px;
 }
 
-button:before {
+.toolbar button:before {
   background: #000;
   right: 1px;
 }
-button:after {
+
+.toolbar button:after {
   background: #444;
   right: 0;
 }
 
-button:last-child:before,
-button:last-child:after {
+.toolbar button:last-child:before,
+.toolbar button:last-child:after {
   display: none;
 }
 
-button.active {
+.toolbar button.active {
   background: black;
   color: white;
 }
 
-button[disabled] {
+.toolbar button[disabled] {
   opacity: .5;
 }
 
-.scribe {
-  overflow: auto;
-  margin: 0 auto 1em;
-  border: solid hsl(0, 0%, 80%);
-  border-width: 0 0 1px;
-  padding: 0.5em;
-  width: 100%;
-  max-width: 960px;
+.edit-btn {
+  background: transparent;
+  border: none;
+  color: #dfd;
+  float: right;
+  font-size: 20px;
 }
 
-.scribe:focus {
+
+/* Layout */
+
+.editor {
+  display: none;
+}
+
+.editor.is-active {
+  display: block;
+}
+
+.editor__frame {
+  overflow: hidden;
+  margin: 0 auto 1em;
+  max-width: 960px;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.editor__source {
+  width: 100%;
+}
+
+.editor--markdown .editor__source {
+  border: none;
+  font-size: 20px;
+  margin: 30px 0 20px;
+  outline: none;
+  overflow: hidden;
+}
+
+/* Scribe */
+
+.scribe {
   outline: none;
 }
 
-.scribe-html {
-  width: 100%;
-  margin: 2em auto 1em;
-  font-family: monospace;
-  border: 1px solid hsl(0, 0%, 80%);
-  padding: 0.5em;
-}
-
-p {
-  margin-top: 0;
-}
 
 /* Dough overrides*/
 
 .ns-mortgage-calc .frontend-assets h1 {
   margin-top: 20px;
+}
+
+.ns-mortgage-calc .frontend-assets p {
+  margin-top: 0;
+}
+
+/* Theme */
+
+.cms-chrome {
+  background-color: #242424;
+  background: -webkit-gradient(linear, left bottom, left top, from(#242424), to(rgba(36, 36, 36, 0.85)));
+  background: -webkit-linear-gradient(bottom, #242424, rgba(36, 36, 36, 0.85));
+  background: linear-gradient(bottom, #242424, rgba(36, 36, 36, 0.85));
 }
