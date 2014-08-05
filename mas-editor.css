@@ -41,12 +41,17 @@ body {
   width: 100%;
 }
 
-.toolbar-inner {
+.toolbar__inner {
   display: table;
+  height: 32px;
   width: 100%;
 }
 
-.toolbar-inline .toolbar-inner {
+.toolbar__inner--markdown {
+  display: block;
+}
+
+.toolbar-inline .toolbar__inner {
   border: 1px solid #000;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 3px #000;
@@ -138,6 +143,7 @@ body {
 
 .editor--markdown .editor__source {
   border: none;
+  color: #2e3030;
   font-size: 20px;
   margin: 30px 0 20px;
   outline: none;
