@@ -8,7 +8,7 @@ require({
     'scribe-plugin-curly-quotes': './bower_components/scribe-plugin-curly-quotes/scribe-plugin-curly-quotes',
     'scribe-plugin-formatter-plain-text-convert-new-lines-to-html': './bower_components/scribe-plugin-formatter-plain-text-convert-new-lines-to-html/scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
     'scribe-plugin-heading-command': './bower_components/scribe-plugin-heading-command/scribe-plugin-heading-command',
-    'scribe-plugin-intelligent-unlink-command': './bower_components/scribe-plugin-intelligent-unlink-command/scribe-plugin-intelligent-unlink-command',
+    // 'scribe-plugin-intelligent-unlink-command': './bower_components/scribe-plugin-intelligent-unlink-command/scribe-plugin-intelligent-unlink-command',
     'scribe-plugin-keyboard-shortcuts': './bower_components/scribe-plugin-keyboard-shortcuts/scribe-plugin-keyboard-shortcuts',
     'scribe-plugin-link-prompt-command': './bower_components/scribe-plugin-link-prompt-command/scribe-plugin-link-prompt-command',
     'scribe-plugin-insertimage-command': './bower_components/scribe-plugin-insertimage-command/scribe-plugin-insertimage-command',
@@ -29,7 +29,7 @@ require({
   'scribe-plugin-curly-quotes',
   'scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
   'scribe-plugin-heading-command',
-  'scribe-plugin-intelligent-unlink-command',
+  // 'scribe-plugin-intelligent-unlink-command',
   'scribe-plugin-keyboard-shortcuts',
   'scribe-plugin-link-prompt-command',
   'scribe-plugin-insertimage-command',
@@ -49,7 +49,7 @@ require({
   scribePluginCurlyQuotes,
   scribePluginFormatterPlainTextConvertNewLinesToHtml,
   scribePluginHeadingCommand,
-  scribePluginIntelligentUnlinkCommand,
+  // scribePluginIntelligentUnlinkCommand,
   scribePluginKeyboardShortcuts,
   scribePluginLinkPromptCommand,
   scribePluginInsertImageCommand,
@@ -113,7 +113,7 @@ require({
   scribe.use(scribePluginHeadingCommand(2));
   scribe.use(scribePluginHeadingCommand(3));
   scribe.use(scribePluginHeadingCommand(4));
-  scribe.use(scribePluginIntelligentUnlinkCommand());
+  // scribe.use(scribePluginIntelligentUnlinkCommand());
   scribe.use(scribePluginLinkPromptCommand());
   scribe.use(scribePluginInsertImageCommand());
   scribe.use(scribePluginInsertTableCommand());
