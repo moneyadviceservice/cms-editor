@@ -80,8 +80,7 @@ require({
    */
 
   scribe = new Scribe(document.querySelector('.scribe'), {
-    allowBlockElements: true,
-    isDebugModeEnabled: true
+    allowBlockElements: true
   });
 
   /**
