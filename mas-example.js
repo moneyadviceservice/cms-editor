@@ -2,7 +2,7 @@ require({
   paths: {
     'marked': './bower_components/marked/lib/marked',
     'toMarkdown': './bower_components/to-markdown/to-markdown',
-    'source-converter': './bower_components/source-converter/source-converter',
+    'source-converter': './js/source-converter/source-converter',
     'scribe': './bower_components/scribe/scribe',
     'scribe-plugin-blockquote-command': './bower_components/scribe-plugin-blockquote-command/scribe-plugin-blockquote-command',
     'scribe-plugin-curly-quotes': './bower_components/scribe-plugin-curly-quotes/scribe-plugin-curly-quotes',
