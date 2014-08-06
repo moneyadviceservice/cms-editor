@@ -1,7 +1,3 @@
 /bower_components
-!/bower_components/scribe-plugin-inserthtml-command
-!/bower_components/scribe-plugin-insertimage-command
-!/bower_components/scribe-plugin-inserttable-command
-!/bower_components/scribe-plugin-sticky-toolbar
-!/bower_components/scribe/
-/articles_archive
+/node_modules
+/_legacy_spike
