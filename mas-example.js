@@ -1,7 +1,7 @@
 require({
   paths: {
     'marked': './bower_components/marked/lib/marked',
-    'toMarkdown': './bower_components/to-markdown/to-markdown',
+    'toMarkdown': './vendor/to-markdown/to-markdown',
     'source-converter': './js/source-converter/source-converter',
     'scribe': './bower_components/scribe/scribe',
     'scribe-plugin-blockquote-command': './bower_components/scribe-plugin-blockquote-command/scribe-plugin-blockquote-command',
