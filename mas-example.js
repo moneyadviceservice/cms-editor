@@ -186,7 +186,11 @@ require({
 
   function updateMarkdownEditor(html) {
     elMarkdownEditorContent.value = convertSource.toMASMarkdown(html);
-    elMarkdownEditorContent.style.height = elMarkdownEditorContent.scrollHeight + 'px';
+    resizeTextarea(elMarkdownEditorContent);
+  }
+
+  function resizeTextarea(textarea) {
+    textarea.style.height = textarea.scrollHeight + 'px';
   }
 
   function updateScribe(markdown) {
