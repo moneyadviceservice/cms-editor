@@ -1,6 +1,12 @@
 {
   "name": "cms-editor",
   "author": "Justin Perry <justin.perry@moneyadviceservice.org.uk>",
+  "main" : [
+    "./src/editor.js"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
   "dependencies": {
     "requirejs": "2.1.11",
     "scribe": "0.1.17",
