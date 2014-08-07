@@ -1,5 +1,5 @@
 {
-  "name": "cms-editor",
+  "name": "mas-cms-editor",
   "author": "Justin Perry <justin.perry@moneyadviceservice.org.uk>",
   "main" : [
     "./src/editor.js"
