@@ -5,6 +5,7 @@ module.exports = function(config) {
     files: [
       'test/fixtures/*.html',
       'test/test-main.js',
+      'test/helpers/helpers.js',
       {pattern: 'src/**/*.js', included: false},
       {pattern: 'test/tests/*.spec.js', included: false},
       {pattern: 'bower_components/**/*.js', included: false}

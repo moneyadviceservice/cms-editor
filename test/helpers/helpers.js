@@ -1,0 +1,5 @@
+define('helpers', [], function() {
+  return {
+
+  };
+});
