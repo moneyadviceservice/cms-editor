@@ -12,7 +12,7 @@ npm install
 
 ## Run locally
 
-Open `src/index.html`
+Open `examples/index.html`
 
 ## Testing locally
 
