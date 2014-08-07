@@ -20,7 +20,9 @@ requirejs.config({
     // Custom deps
     'helpers': 'helpers/helpers',
     'converter': 'src/modules/utilities/source-converter/source-converter',
+
     // 3rd-party libraries
+    'text': bowerPath + 'requirejs-text/text',
     'to-markdown': bowerPath + 'to-markdown/src/to-markdown',
     'marked': bowerPath + 'marked/lib/marked',
     'scribe': bowerPath + 'scribe/scribe'
