@@ -1,23 +1,25 @@
 define(
   'source-converter',
   [
-   'marked'
+   'marked',
+   'to-markdown'
   ],
   function (
-    marked
+    marked,
+    toMarkdownConverter
   ) {
   return (function() {
     var toHTML = function(src) {
       return marked(src);
     };
 
-    var toMASMarkdown = function(src) {
-      return toMarkdown(src);
+    var toMarkdown = function(src) {
+      return toMarkdownConverter(src);
     };
 
     return {
       toHTML : toHTML,
-      toMASMarkdown : toMASMarkdown
+      toMarkdown : toMarkdown
     };
   })();
 });
