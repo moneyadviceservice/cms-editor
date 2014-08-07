@@ -27,7 +27,7 @@ karma start test/karma.conf.js
 Without karma-cli:
 
 ```sh
-./node_modules/karma/bin/karma start spec/javascripts/karma.conf.js
+./node_modules/karma/bin/karma start test/karma.conf.js
 ```
 
 `autoWatch` is on by default so tests will rerun whenever changes are made.
