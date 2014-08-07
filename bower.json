@@ -1,7 +1,7 @@
 {
   "name": "mas-cms-editor",
   "author": "Justin Perry <justin.perry@moneyadviceservice.org.uk>",
-  "main" : [
+  "main": [
     "./src/editor.js"
   ],
   "ignore": [
@@ -21,5 +21,8 @@
     "scribe-plugin-toolbar": "0.1.4",
     "marked": "~0.3.2",
     "to-markdown": "~0.0.2"
+  },
+  "devDependencies": {
+    "requirejs-text": "~2.0.12"
   }
 }

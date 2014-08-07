@@ -17,7 +17,16 @@ requirejs.config({
   baseUrl: '/base',
   deps: tests,
   paths: {
-    'select-mask' : 'src/js/select-mask'
+    // Custom deps
+    'helpers': 'helpers/helpers',
+    'converter': 'src/modules/utilities/source-converter/source-converter',
+
+    // 3rd-party libraries
+    'text': bowerPath + 'requirejs-text/text',
+    'to-markdown': bowerPath + 'to-markdown/src/to-markdown',
+    'marked': bowerPath + 'marked/lib/marked',
+    'scribe': bowerPath + 'scribe/scribe'
+
   },
   callback: window.__karma__.start
 });
