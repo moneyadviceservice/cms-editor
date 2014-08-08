@@ -5,6 +5,7 @@ require.config({
     'editor': './src/editor',
 
     // Editor modules
+    'scribe-wrapper': './src/modules/lib/scribe-wrapper/scribe-wrapper',
     'source-converter': './src/modules/lib/source-converter/source-converter',
 
     // Editor plugins

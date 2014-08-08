@@ -1,20 +1,24 @@
-define('editor',
-  [
-  'scribe',
+define('editor', [
+  'scribe-wrapper',
   'source-converter',
   'editor-plugin-sticky-toolbar'
-  ],
-  function (scribe, converter, editorSticky) {
+  ], function (
+    scribe,
+    converter,
+    editorSticky
+  ) {
     'use strict';
 
     var Editor = function(htmlEditorNode, markdownEditorNode, toolbarNode, options) {
-      this.toolBarNode = toolbarNode;
+      this.toolbarNode = toolbarNode;
       this.htmlEditorNode = htmlEditorNode;
       this.markdownEditorNode = markdownEditorNode;
       this.options = {};
       this.options.stickyToolbar = options.stickyToolbar || false;
       this.converter = converter;
-      this.editor = scribe;
+      this.editor = scribe(this.htmlEditorNode, this.toolbarNode , {
+        allowBlockElements : true
+      });
       this.mode = options.mode || 'html';
       this._init();
     };

@@ -8,7 +8,16 @@
   <h1>CMS</h1>
 
   <div class="toolbar js-toolbar">
-
+    <button data-command-name="bold"><span class="fa fa-bold"></span>b</button>
+    <button data-command-name="linkPrompt"><span class="fa fa-link"></span>link</button>
+    <button data-command-name="unlink"><span class="fa fa-unlink"></span>unlink</button>
+    <button data-command-name="insertOrderedList"><span class="fa fa-list-ol"></span>ol</button>
+    <button data-command-name="insertUnorderedList"><span class="fa fa-list-ul"></span>ul</button>
+    <button data-command-name="h1">H1</button>
+    <button data-command-name="h2">H2</button>
+    <button data-command-name="h3">H3</button>
+    <button data-command-name="h4">H4</button>
+    <button data-command-name="removeFormat"><span class="fa fa-square-o"></span>remove formatting</button>
   </div>
 
   <div class="editor-view editor-view--html">
@@ -25,7 +34,10 @@
     require([
       'editor',
       'editor-plugin-sticky-toolbar'
-    ], function (Editor, editorPluginStickyToolbar){
+    ], function (
+      Editor,
+      editorPluginStickyToolbar
+    ) {
       var toolbarNode = document.querySelector('.js-toolbar');
       var editor = new Editor(
         document.querySelector('.js-html-editor'),
