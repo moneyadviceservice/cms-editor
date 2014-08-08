@@ -44,10 +44,7 @@
       var editor = new Editor(
         document.querySelector('.js-html-editor'),
         document.querySelector('.js-markdown-editor'),
-        toolbarNode,
-        {
-          stickyToolbar : true
-        }
+        toolbarNode
       );
       editor.use(editorPluginStickyToolbar(toolbarNode));
       editor.render();

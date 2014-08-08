@@ -8,6 +8,20 @@ body {
   padding: 0 20px;
 }
 
+/**
+ * Toolbar
+ */
+
+.toolbar.is-sticky {
+  background: white;
+  position: fixed;
+  top: 0;
+}
+
+/**
+ * Editor
+ */
+
 .editor {
   float: left;
   padding-left: 10px;

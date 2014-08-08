@@ -1,11 +1,9 @@
 define('editor', [
   'scribe-wrapper',
-  'source-converter',
-  'editor-plugin-sticky-toolbar'
+  'source-converter'
 ], function (
     scribe,
-    converter,
-    editorSticky
+    converter
 ) {
     'use strict';
 
@@ -13,13 +11,12 @@ define('editor', [
       this.toolbarNode = toolbarNode;
       this.htmlEditorNode = htmlEditorNode;
       this.markdownEditorNode = markdownEditorNode;
-      this.options = {};
-      this.options.stickyToolbar = options.stickyToolbar || false;
+      this.options = options || {};
       this.converter = converter;
       this.editor = scribe(this.htmlEditorNode, this.toolbarNode , {
         allowBlockElements : true
       });
-      this.mode = options.mode || 'html';
+      this.mode = this.options.mode || 'html';
       this._init();
     };
 
