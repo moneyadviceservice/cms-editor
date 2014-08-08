@@ -1,10 +1,10 @@
 define('source-converter', [
-   'marked',
-   'to-markdown'
-  ], function (
-    marked,
-    toMarkdownConverter
-  ) {
+  'marked',
+  'to-markdown'
+], function (
+  marked,
+  toMarkdownConverter
+) {
   'use strict';
 
   return (function() {

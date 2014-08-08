@@ -1,13 +1,13 @@
 define('scribe-wrapper', [
-    'scribe',
-    'scribe-plugin-blockquote-command',
-    'scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
-    'scribe-plugin-heading-command',
-    'scribe-plugin-keyboard-shortcuts',
-    'scribe-plugin-link-prompt-command',
-    'scribe-plugin-sanitizer',
-    'scribe-plugin-toolbar'
-  ], function (
+  'scribe',
+  'scribe-plugin-blockquote-command',
+  'scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
+  'scribe-plugin-heading-command',
+  'scribe-plugin-keyboard-shortcuts',
+  'scribe-plugin-link-prompt-command',
+  'scribe-plugin-sanitizer',
+  'scribe-plugin-toolbar'
+], function (
     Scribe,
     scribePluginBlockquoteCommand,
     scribePluginFormatterPlainTextConvertNewLinesToHtml,
@@ -16,7 +16,7 @@ define('scribe-wrapper', [
     scribePluginLinkPromptCommand,
     scribePluginSanitizer,
     scribePluginToolbar
-  ) {
+) {
   return function(editorNode, toolbarNode, options) {
     'use strict';
 

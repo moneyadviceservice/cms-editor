@@ -2,11 +2,11 @@ define('editor', [
   'scribe-wrapper',
   'source-converter',
   'editor-plugin-sticky-toolbar'
-  ], function (
+], function (
     scribe,
     converter,
     editorSticky
-  ) {
+) {
     'use strict';
 
     var Editor = function(htmlEditorNode, markdownEditorNode, toolbarNode, options) {
