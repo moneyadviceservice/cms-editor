@@ -18,6 +18,7 @@ define('scribe-wrapper', [
     scribePluginToolbar
   ) {
   return function(editorNode, toolbarNode, options) {
+    'use strict';
 
     /**
      * Start Scribe

@@ -1,4 +1,6 @@
 describe('CMS Editor', function() {
+  'use strict';
+
   before(function(done) {
     var self = this;
 

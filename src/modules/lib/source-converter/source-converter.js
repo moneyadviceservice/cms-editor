@@ -5,7 +5,6 @@ define('source-converter', [
     marked,
     toMarkdownConverter
   ) {
-
   'use strict';
 
   return (function() {
