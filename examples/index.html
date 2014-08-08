@@ -3,30 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>CMS Editor</title>
+  <link rel="stylesheet" href="styles/example.css">
 </head>
 <body>
-  <h1>CMS</h1>
+  <div class="editor editor--html">
+    <h1>HTML</h1>
+    <nav class="toolbar js-toolbar">
+      <button data-command-name="bold"><span class="fa fa-bold"></span>b</button>
+      <button data-command-name="linkPrompt"><span class="fa fa-link"></span>link</button>
+      <button data-command-name="unlink"><span class="fa fa-unlink"></span>unlink</button>
+      <button data-command-name="insertOrderedList"><span class="fa fa-list-ol"></span>ol</button>
+      <button data-command-name="insertUnorderedList"><span class="fa fa-list-ul"></span>ul</button>
+      <button data-command-name="h1">H1</button>
+      <button data-command-name="h2">H2</button>
+      <button data-command-name="h3">H3</button>
+      <button data-command-name="h4">H4</button>
+      <button data-command-name="removeFormat"><span class="fa fa-square-o"></span>remove formatting</button>
+    </nav>
 
-  <div class="toolbar js-toolbar">
-    <button data-command-name="bold"><span class="fa fa-bold"></span>b</button>
-    <button data-command-name="linkPrompt"><span class="fa fa-link"></span>link</button>
-    <button data-command-name="unlink"><span class="fa fa-unlink"></span>unlink</button>
-    <button data-command-name="insertOrderedList"><span class="fa fa-list-ol"></span>ol</button>
-    <button data-command-name="insertUnorderedList"><span class="fa fa-list-ul"></span>ul</button>
-    <button data-command-name="h1">H1</button>
-    <button data-command-name="h2">H2</button>
-    <button data-command-name="h3">H3</button>
-    <button data-command-name="h4">H4</button>
-    <button data-command-name="removeFormat"><span class="fa fa-square-o"></span>remove formatting</button>
+    <div class="editor__content js-html-editor" name="html-editor" id="html-editor"></div>
   </div>
 
-  <div class="editor-view editor-view--html">
-    <div class="js-html-editor" name="html-editor" id="html-editor"></div>
+  <div class="editor editor--markdown">
+    <h1>Markdown</h1>
+    <textarea class="editor__content js-markdown-editor" name="markdown-editor" id="markdown-editor"></textarea>
   </div>
 
-  <div class="editor-view editor-view--markdown">
-    <textarea class="js-markdown-editor" name="markdown-editor" id="markdown-editor"></textarea>
-  </div>
 
   <script src="../bower_components/requirejs/require.js"></script>
   <script src="../src/main.js"></script>
