@@ -8,6 +8,9 @@ define(
     marked,
     toMarkdownConverter
   ) {
+
+  'use strict';
+
   return (function() {
     var toHTML = function(src) {
       return marked(src);
