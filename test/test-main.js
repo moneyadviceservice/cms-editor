@@ -18,8 +18,9 @@ requirejs.config({
   deps: tests,
   paths: {
     // Custom deps
-    'helpers': 'helpers/helpers',
-    'converter': 'src/modules/utilities/source-converter/source-converter',
+    'editor': 'src/editor',
+    'source-converter': 'src/modules/lib/source-converter/source-converter',
+    'editor-plugin-sticky-toolbar': 'src/modules/lib/plugins/editor-sticky-toolbar',
 
     // 3rd-party libraries
     'text': bowerPath + 'requirejs-text/text',

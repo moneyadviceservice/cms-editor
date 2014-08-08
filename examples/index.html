@@ -6,6 +6,38 @@
 </head>
 <body>
   <h1>CMS</h1>
-  <script data-main="../src/editor.js" src="../bower_components/requirejs/require.js"></script>
+
+  <div class="toolbar js-toolbar">
+
+  </div>
+
+  <div class="editor-view editor-view--html">
+    <div class="js-html-editor" name="html-editor" id="html-editor"></div>
+  </div>
+
+  <div class="editor-view editor-view--markdown">
+    <textarea class="js-markdown-editor" name="markdown-editor" id="markdown-editor"></textarea>
+  </div>
+
+  <script src="../bower_components/requirejs/require.js"></script>
+  <script src="../src/main.js"></script>
+  <script>
+    require([
+      'editor',
+      'editor-plugin-sticky-toolbar'
+    ], function (Editor, editorPluginStickyToolbar){
+      var toolbarNode = document.querySelector('.js-toolbar');
+      var editor = new Editor(
+        document.querySelector('.js-html-editor'),
+        document.querySelector('.js-markdown-editor'),
+        toolbarNode,
+        {
+          stickyToolbar : true
+        }
+      );
+      editor.use(editorPluginStickyToolbar(toolbarNode));
+      editor.render();
+    });
+  </script>
 </body>
 </html>
