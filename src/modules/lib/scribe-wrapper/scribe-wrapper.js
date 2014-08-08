@@ -34,14 +34,11 @@ define('scribe-wrapper', [
 
     var commandsToKeyboardShortcutsMap = Object.freeze({
       bold: function (event) { return event.metaKey && event.keyCode === 66; }, // b
-      italic: function (event) { return event.metaKey && event.keyCode === 73; }, // i
-      strikeThrough: function (event) { return event.altKey && event.shiftKey && event.keyCode === 83; }, // s
       removeFormat: function (event) { return event.altKey && event.shiftKey && event.keyCode === 65; }, // a
       linkPrompt: function (event) { return event.metaKey && ! event.shiftKey && event.keyCode === 75; }, // k
       unlink: function (event) { return event.metaKey && event.shiftKey && event.keyCode === 75; }, // k,
       insertUnorderedList: function (event) { return event.altKey && event.shiftKey && event.keyCode === 66; }, // b
-      insertOrderedList: function (event) { return event.altKey && event.shiftKey && event.keyCode === 78; }, // n
-      blockquote: function (event) { return event.altKey && event.shiftKey && event.keyCode === 87; }
+      insertOrderedList: function (event) { return event.altKey && event.shiftKey && event.keyCode === 78; }
     });
 
     /**
