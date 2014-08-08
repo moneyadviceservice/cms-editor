@@ -1,10 +1,7 @@
-define(
-  'source-converter',
-  [
+define('source-converter', [
    'marked',
    'to-markdown'
-  ],
-  function (
+  ], function (
     marked,
     toMarkdownConverter
   ) {
