@@ -23,7 +23,7 @@ describe('CMS Editor', function() {
       var sandbox = document.createElement('div');
       sandbox.innerHTML = window.__html__['test/fixtures/default.html'];
       document.body.appendChild(sandbox);
-      self.sandbox =  sandbox;
+      self.sandbox = sandbox;
       self.helpers = helpers;
       self.toolbarNode = sandbox.querySelector(self.toolbarNodeSelector);
       self.markdownEditorNode = sandbox.querySelector(self.markdownEditorNodeSelector);

@@ -30,7 +30,7 @@ requirejs.config({
     'text': bowerPath + 'requirejs-text/text',
     'to-markdown': bowerPath + 'to-markdown/src/to-markdown',
     'marked': bowerPath + 'marked/lib/marked',
-    'he': './bower_components/he/he',
+    'he': bowerPath + 'he/he',
     'scribe': bowerPath + 'scribe/scribe',
     'scribe-plugin-blockquote-command': bowerPath + 'scribe-plugin-blockquote-command/scribe-plugin-blockquote-command',
     'scribe-plugin-formatter-plain-text-convert-new-lines-to-html': bowerPath + 'scribe-plugin-formatter-plain-text-convert-new-lines-to-html/scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
