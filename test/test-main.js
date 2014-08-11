@@ -27,6 +27,7 @@ requirejs.config({
     'text': bowerPath + 'requirejs-text/text',
     'to-markdown': bowerPath + 'to-markdown/src/to-markdown',
     'marked': bowerPath + 'marked/lib/marked',
+    'he': './bower_components/he/he',
     'scribe': bowerPath + 'scribe/scribe',
     'scribe-plugin-blockquote-command': bowerPath + 'scribe-plugin-blockquote-command/scribe-plugin-blockquote-command',
     'scribe-plugin-formatter-plain-text-convert-new-lines-to-html': bowerPath + 'scribe-plugin-formatter-plain-text-convert-new-lines-to-html/scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
@@ -39,6 +40,11 @@ requirejs.config({
     'scribe-plugin-sanitizer': bowerPath + 'scribe-plugin-sanitizer/scribe-plugin-sanitizer',
     'scribe-plugin-smart-lists': bowerPath + 'scribe-plugin-smart-lists/scribe-plugin-smart-lists',
     'scribe-plugin-toolbar': bowerPath + 'scribe-plugin-toolbar/scribe-plugin-toolbar'
+  },
+  shim : {
+    'to-markdown' : {
+      deps : ['he']
+    }
   },
   callback: window.__karma__.start
 });
