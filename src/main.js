@@ -9,7 +9,7 @@ require.config({
     'source-converter': './src/modules/lib/source-converter/source-converter',
 
     // Editor plugins
-    'editor-plugin-sticky-toolbar': './src/modules/plugins/editor-sticky-toolbar',
+    'editor-plugin-sticky-toolbar': './src/modules/plugins/editor-sticky-toolbar/editor-sticky-toolbar',
 
     // Scribe
     'he': './bower_components/he/he',
