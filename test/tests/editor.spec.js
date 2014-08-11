@@ -135,7 +135,27 @@ describe('CMS Editor', function() {
       };
       var spy = sinon.spy(editor, 'use');
       editor.use(plugin());
-      expect(toolbarInstance).to.equal(editor);
+      expect(editorInstance).to.equal(editor);
+    });
+
+    it('ensures that the plugin can receive optional arguments', function() {
+      var editor = new this.Editor(
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          spy,
+          optionalArg,
+          plugin;
+
+      plugin = function(argOrg){
+        return function(editor) {
+          optionalArg = argOrg;
+        };
+      };
+      spy = sinon.spy(editor, 'use');
+      editor.use(plugin({ options : true }));
+      expect(optionalArg.options).to.equal(true);
     });
 
   });
