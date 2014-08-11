@@ -42,10 +42,10 @@ describe('CMS Editor', function() {
   describe('Mode switch', function() {
     it('allows the mode to be changed', function() {
       var editor = new this.Editor(
-        this.htmlEditorNode,
-        this.markdownEditorNode,
-        this.toolbarNode,
-        {});
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {});
 
       editor._setEditingMode('markdown');
       expect(editor.mode).to.equal('markdown');
@@ -64,22 +64,26 @@ describe('CMS Editor', function() {
   describe('Markdown editor', function() {
     it('allows value to be set', function() {
       var editor = new this.Editor(
-        this.htmlEditorNode,
-        this.markdownEditorNode,
-        this.toolbarNode,
-        {});
-      var markdown = '**Dummy**';
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          markdown;
+
+      markdown = '**Dummy**';
       editor.setMarkdownContent(markdown);
       expect(this.markdownEditorNode.value).to.equal(markdown);
     });
 
     it('allows value to be read', function() {
       var editor = new this.Editor(
-        this.htmlEditorNode,
-        this.markdownEditorNode,
-        this.toolbarNode,
-        {});
-      var markdown = '**Dummy**';
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          markdown;
+
+      markdown = '**Dummy**';
       this.markdownEditorNode.value = markdown;
       expect(editor.getMarkdownContent()).to.equal(markdown);
     });
@@ -88,11 +92,13 @@ describe('CMS Editor', function() {
   describe('HTML editor', function() {
     it('allows value to be set', function() {
       var editor = new this.Editor(
-        this.htmlEditorNode,
-        this.markdownEditorNode,
-        this.toolbarNode,
-        {});
-      var html = '<p>Dummy</p>';
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          html;
+
+      html = '<p>Dummy</p>';
       editor.setHTMLContent(html);
       expect(editor.getHTMLContent()).to.equal(html);
     });
@@ -102,8 +108,10 @@ describe('CMS Editor', function() {
         this.htmlEditorNode,
         this.markdownEditorNode,
         this.toolbarNode,
-        {});
-      var html = '<p>Dummy</p>';
+        {}),
+        html;
+
+      html = '<p>Dummy</p>';
       editor.setHTMLContent(html);
       expect(editor.getHTMLContent()).to.equal(html);
     });
