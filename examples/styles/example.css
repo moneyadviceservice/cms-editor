@@ -38,3 +38,13 @@ body {
   min-height: 400px;
   width: 100%;
 }
+
+/**
+ * Nav mode buttons
+ */
+
+.nav-mode {
+  clear: both;
+  text-align: center;
+  padding: 20px;
+}

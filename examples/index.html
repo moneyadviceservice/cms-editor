@@ -29,6 +29,10 @@
     <textarea class="editor__content js-markdown-editor" name="markdown-editor" id="markdown-editor"></textarea>
   </div>
 
+  <div class="nav-mode">
+    <button class="js-switch-mode" data-mode="markdown">Switch to Markdown</button>
+    <button class="js-switch-mode" data-mode="html">Switch to HTML</button>
+  </div>
 
   <script src="../bower_components/requirejs/require.js"></script>
   <script src="../src/main.js"></script>
@@ -40,14 +44,33 @@
       Editor,
       editorPluginStickyToolbar
     ) {
-      var toolbarNode = document.querySelector('.js-toolbar');
-      var editor = new Editor(
+      var toolbarNode, editor;
+
+      toolbarNode = document.querySelector('.js-toolbar');
+
+      editor = new Editor(
         document.querySelector('.js-html-editor'),
         document.querySelector('.js-markdown-editor'),
         toolbarNode
       );
       editor.use(editorPluginStickyToolbar(toolbarNode));
+      editor.setHTMLContent('<h1>Hello</h1>');
+      editor.setMarkdownContent('**Hello**');
       editor.render();
+
+      function setupEditModeButtons() {
+        var buttonNodes = document.querySelectorAll('.js-switch-mode'),
+            i = buttonNodes.length;
+
+          while(i--) {
+            (function(button) {
+              button.addEventListener('click', function() {
+                editor.changeEditingMode(button.dataset.mode);
+              });
+            })(buttonNodes[i]);
+          }
+      }
+      setupEditModeButtons();
     });
   </script>
 </body>
