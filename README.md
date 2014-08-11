@@ -1,13 +1,14 @@
 # cms-editor
 
-The Money Advice Service's CMS.
+The Money Advice Service's CMS editor.
 
-Uses [scribe](https://github.com/guardian/scribe/) for content editing.
+Uses [scribe](https://github.com/guardian/scribe/) for HTML content editing, [marked](https://github.com/chjj/marked) for Markdown to HTML conversion and **TBD** [to-markdown](https://github.com/domchristie/to-markdown) for HTML to Markdown conversion.
 
 ## Installation
 
 ```sh
 npm install
+bower install
 ```
 
 ## Run locally
@@ -32,4 +33,18 @@ Without karma-cli:
 
 `autoWatch` is on by default so tests will rerun whenever changes are made.
 
-Use `--single-run` if you want it to run once.
+Use `--single-run` if you only want it to run once.
+
+## Generating documentation
+
+With a global jsdoc install:
+
+```sh
+jsdoc src/editor.js
+```
+
+Without:
+
+```sh
+./node_modules/.bin/jsdoc src/editor.js
+```
