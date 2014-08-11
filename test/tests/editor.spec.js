@@ -9,18 +9,16 @@ describe('CMS Editor', function() {
     this.toolbarNodeSelector = '#toolbar';
 
     requirejs([
-      'bind',
-      'mutationobserver',
       'editor',
       'helpers',
-      'text!test/helpers/content/content.md'
+      'text!test/helpers/content/content.md',
+      'phantom-shims'
     ],
     function (
-      bind,
-      mutationobserver,
       Editor,
       helpers,
-      content
+      content,
+      phantomShims
     ) {
       var sandbox = document.createElement('div');
       sandbox.innerHTML = window.__html__['test/fixtures/default.html'];

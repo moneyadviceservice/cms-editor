@@ -24,8 +24,7 @@ requirejs.config({
     'scribe-wrapper': 'src/modules/lib/scribe-wrapper/scribe-wrapper',
 
     // PhantomJS shims
-    'bind' : 'test/helpers/shims/bind',
-    'mutationobserver' : 'test/helpers/shims/mutationobserver.min',
+    'phantom-shims' : 'test/helpers/shims/phantom-shims',
 
     // 3rd-party libraries
     'text': bowerPath + 'requirejs-text/text',
