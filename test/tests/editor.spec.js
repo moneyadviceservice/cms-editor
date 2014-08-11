@@ -53,11 +53,22 @@ describe('CMS Editor', function() {
 
     it('allows the mode to be changed to html and content updated', function() {
       var editor = new this.Editor(
-        this.htmlEditorNode,
-        this.markdownEditorNode,
-        this.toolbarNode,
-        {});
-      expect(false).to.be.true;
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          markdown,
+          cleanedHTML;
+
+      editor.
+        _setEditingMode('markdown')
+        .setMarkdownContent('**Dummy**')
+        .changeEditingMode('html');
+
+      cleanedHTML = editor.getHTMLContent().replace(/\s+/gi,'');
+
+      expect(editor.mode).to.equal('html');
+      expect(cleanedHTML).to.equal('<p><strong>Dummy</strong></p>');
     });
   });
 
