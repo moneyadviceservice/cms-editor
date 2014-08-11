@@ -23,6 +23,10 @@ requirejs.config({
     'editor-plugin-sticky-toolbar': 'src/modules/lib/plugins/editor-sticky-toolbar',
     'scribe-wrapper': 'src/modules/lib/scribe-wrapper/scribe-wrapper',
 
+    // PhantomJS shims
+    'bind' : 'test/helpers/shims/bind',
+    'mutationobserver' : 'test/helpers/shims/mutationobserver.min',
+
     // 3rd-party libraries
     'text': bowerPath + 'requirejs-text/text',
     'to-markdown': bowerPath + 'to-markdown/src/to-markdown',

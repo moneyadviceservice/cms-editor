@@ -9,11 +9,15 @@ describe('CMS Editor', function() {
     this.toolbarNodeSelector = '#toolbar';
 
     requirejs([
+      'bind',
+      'mutationobserver',
       'editor',
       'helpers',
       'text!test/helpers/content/content.md'
     ],
     function (
+      bind,
+      mutationobserver,
       Editor,
       helpers,
       content
@@ -26,9 +30,7 @@ describe('CMS Editor', function() {
       self.toolbarNode = sandbox.querySelector(self.toolbarNodeSelector);
       self.markdownEditor = sandbox.querySelector(self.markdownEditorSelector);
       self.htmlEditor = sandbox.querySelector(self.htmlEditorSelector);
-      console.log(self.toolbarNode);
-      console.log(self.markdownEditor);
-      console.log(self.htmlEditor);
+
       self.Editor = Editor;
       self.markdownEditor.value = content;
       done();
