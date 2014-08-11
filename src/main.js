@@ -33,9 +33,6 @@ require.config({
   shim: {
     'to-markdown' : {
       deps : ['he']
-    },
-    'he': {
-        'exports': 'he'
     }
   }
 });
