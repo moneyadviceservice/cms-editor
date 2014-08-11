@@ -6,32 +6,34 @@
   <link rel="stylesheet" href="styles/example.css">
 </head>
 <body>
-  <div class="editor editor--html">
-    <h1>HTML</h1>
-    <nav class="toolbar js-toolbar">
-      <button data-command-name="bold"><span class="fa fa-bold"></span>b</button>
-      <button data-command-name="linkPrompt"><span class="fa fa-link"></span>link</button>
-      <button data-command-name="unlink"><span class="fa fa-unlink"></span>unlink</button>
-      <button data-command-name="insertOrderedList"><span class="fa fa-list-ol"></span>ol</button>
-      <button data-command-name="insertUnorderedList"><span class="fa fa-list-ul"></span>ul</button>
-      <button data-command-name="h1">H1</button>
-      <button data-command-name="h2">H2</button>
-      <button data-command-name="h3">H3</button>
-      <button data-command-name="h4">H4</button>
-      <button data-command-name="removeFormat"><span class="fa fa-square-o"></span>remove formatting</button>
-    </nav>
-
-    <div class="editor__content js-html-editor" name="html-editor" id="html-editor"></div>
-  </div>
-
-  <div class="editor editor--markdown">
-    <h1>Markdown</h1>
-    <textarea class="editor__content js-markdown-editor" name="markdown-editor" id="markdown-editor"></textarea>
-  </div>
-
   <div class="nav-mode">
-    <button class="js-switch-mode" data-mode="markdown">Switch to Markdown</button>
     <button class="js-switch-mode" data-mode="html">Switch to HTML</button>
+    <button class="js-switch-mode" data-mode="markdown">Switch to Markdown</button>
+  </div>
+
+  <div class="container">
+    <div class="editor editor--html">
+      <h1>HTML</h1>
+      <nav class="toolbar js-toolbar">
+        <button data-command-name="bold"><span class="fa fa-bold"></span>b</button>
+        <button data-command-name="linkPrompt"><span class="fa fa-link"></span>link</button>
+        <button data-command-name="unlink"><span class="fa fa-unlink"></span>unlink</button>
+        <button data-command-name="insertOrderedList"><span class="fa fa-list-ol"></span>ol</button>
+        <button data-command-name="insertUnorderedList"><span class="fa fa-list-ul"></span>ul</button>
+        <button data-command-name="h1">H1</button>
+        <button data-command-name="h2">H2</button>
+        <button data-command-name="h3">H3</button>
+        <button data-command-name="h4">H4</button>
+        <button data-command-name="removeFormat"><span class="fa fa-square-o"></span>remove formatting</button>
+      </nav>
+
+      <div class="editor__content js-html-editor" name="html-editor" id="html-editor"></div>
+    </div>
+
+    <div class="editor editor--markdown">
+      <h1>Markdown</h1>
+      <textarea class="editor__content js-markdown-editor" name="markdown-editor" id="markdown-editor"></textarea>
+    </div>
   </div>
 
   <script src="../bower_components/requirejs/require.js"></script>
@@ -39,10 +41,12 @@
   <script>
     require([
       'editor',
-      'editor-plugin-sticky-toolbar'
+      'editor-plugin-sticky-toolbar',
+      'text!examples/data/content.md'
     ], function (
       Editor,
-      editorPluginStickyToolbar
+      editorPluginStickyToolbar,
+      content
     ) {
       var toolbarNode, editor;
 
@@ -54,9 +58,8 @@
         toolbarNode
       );
       editor.use(editorPluginStickyToolbar(toolbarNode));
-      editor.setHTMLContent('<h1>Hello</h1>');
-      editor.setMarkdownContent('**Hello**');
-      editor.render();
+      editor.setMarkdownContent(content);
+      editor.render('html', content);
 
       function setupEditModeButtons() {
         var buttonNodes = document.querySelectorAll('.js-switch-mode'),

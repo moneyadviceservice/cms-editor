@@ -3,6 +3,7 @@ require.config({
   paths: {
     // Editor core
     'editor': './src/editor',
+    'text': './bower_components/requirejs-text/text',
 
     // Editor modules
     'scribe-wrapper': './src/modules/lib/scribe-wrapper/scribe-wrapper',

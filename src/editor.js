@@ -101,16 +101,6 @@ define('editor', [
     };
 
     /**
-     * Sets the initial content value depending on the mode
-     * @param {string} src    The parsed source code
-     * @param {string} mode   The mode
-     */
-    Editor.prototype.setContent = function(src) {
-      this.modes[this.mode](src);
-      return this;
-    };
-
-    /**
      * Gets the contents of the HTML editor
      * @return {string} HTML
      */
@@ -148,9 +138,12 @@ define('editor', [
 
     /**
      * Boots up the display of the content
+     * @param {string} mode Mode
+     * @param {string} src Source to convert
      * @return {Object} this
      */
-    Editor.prototype.render = function() {
+    Editor.prototype.render = function(mode, src) {
+      this.changeEditingMode(mode);
       return this;
     };
 
