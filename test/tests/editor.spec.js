@@ -112,28 +112,33 @@ describe('CMS Editor', function() {
   describe('Plugins', function() {
     it('allows a plugin to be specified and activated', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditorNode,
-        this.toolbarNode,
-        {});
-      var spy = sinon.spy();
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          spy;
+
+      spy = sinon.spy();
       editor.use(spy);
       expect(spy.callCount).to.equal(1);
     });
 
     it('should pass the plugin an editor instance as an argument', function() {
       var editor = new this.Editor(
-        this.htmlEditorNode,
-        this.markdownEditorNode,
-        this.toolbarNode,
-        {});
-      var toolbarInstance;
-      var plugin = function(){
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          plugin,
+          editorInstance,
+          spy;
+
+      plugin = function(){
         return function(instance) {
-          toolbarInstance = instance;
+          editorInstance = instance;
         };
       };
-      var spy = sinon.spy(editor, 'use');
+      spy = sinon.spy(editor, 'use');
       editor.use(plugin());
       expect(editorInstance).to.equal(editor);
     });
