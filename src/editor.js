@@ -70,16 +70,14 @@ define('editor', [
 
     /**
      * Changes the editing mode
-     * @param  {string} mode html|markdown
+     * @param  {string} mode Editing mode
      * @return {Object}      this
      */
     Editor.prototype.changeEditingMode = function(mode) {
       var dispatch = {
         'markdown': function() {
-          // console.log('markdown');
         },
         'html': function() {
-          // console.log('html');
         }
       },
       dispatchElse = function() {
@@ -94,8 +92,8 @@ define('editor', [
 
     /**
      * Sets the initial content value depending on the mode
-     * @param {string}[html|markdown] src The parsed source code
-     * @param {string} mode  The mode
+     * @param {string} src    The parsed source code
+     * @param {string} mode   The mode
      */
     Editor.prototype.setContent = function(src, mode) {
       // this.modes[this.mode].setContent(src);
@@ -147,8 +145,8 @@ define('editor', [
     };
 
     /**
-     * Starts a plugin
-     * @param  {Object} activatePlugin The plugin to start
+     * Activates plugin
+     * @param  {Object} activatePlugin Plugin to activate
      * @return {Object} this
      */
     Editor.prototype.use = function(activatePlugin) {
