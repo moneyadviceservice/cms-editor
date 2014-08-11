@@ -40,7 +40,7 @@ describe('CMS Editor', function() {
   });
 
   describe('Mode switch', function() {
-    it('allows the mode to be changed to markdown', function() {
+    it('allows the mode to be changed', function() {
       var editor = new this.Editor(
         this.htmlEditorNode,
         this.markdownEditorNode,
@@ -123,7 +123,7 @@ describe('CMS Editor', function() {
       expect(spy.callCount).to.equal(1);
     });
 
-    it('should pass the plugin an editor instance as an argument', function() {
+    it('ensures that the plugin receives an editor instance as an argument', function() {
       var editor = new this.Editor(
           this.htmlEditorNode,
           this.markdownEditorNode,
