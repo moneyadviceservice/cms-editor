@@ -1,5 +1,5 @@
 define('editor-plugin-sticky-toolbar', [], function () {
-  return function(toolbarNode) {
+  return function(toolbarNode, options) {
     return function() {
       var toolbarOffsetTop,
           scrolled = false;
