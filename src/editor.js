@@ -64,7 +64,7 @@ define('editor', [
      * @return {string}
      */
     Editor.prototype._setEditingMode = function(mode) {
-      this.options.mode = mode;
+      this.mode = mode;
       return this;
     };
 
@@ -76,11 +76,10 @@ define('editor', [
     Editor.prototype.changeEditingMode = function(mode) {
       var dispatch = {
         'markdown': function() {
-          console.log('markdown');
-          // this.setHTMLContent();
+          // console.log('markdown');
         },
         'html': function() {
-          console.log('html');
+          // console.log('html');
         }
       },
       dispatchElse = function() {
@@ -108,7 +107,7 @@ define('editor', [
      * @return {string} HTML
      */
     Editor.prototype.getHTMLContent = function() {
-      return this;
+      return this.editor.getContent();
     };
 
     /**
@@ -117,6 +116,7 @@ define('editor', [
      * @return {Object} this
      */
     Editor.prototype.setHTMLContent = function(html) {
+      this.editor.setContent(html);
       return this;
     };
 
@@ -125,7 +125,7 @@ define('editor', [
      * @return {string} Markdown
      */
     Editor.prototype.getMarkdownContent = function() {
-      return this;
+      return this.markdownEditorNode.value;
     };
 
     /**
@@ -134,6 +134,7 @@ define('editor', [
      * @return {Object} this
      */
     Editor.prototype.setMarkdownContent = function(markdown) {
+      this.markdownEditorNode.value = markdown;
       return this;
     };
 

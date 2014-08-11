@@ -23,7 +23,6 @@ define('scribe-wrapper', [
     /**
      * Start Scribe
      */
-
     var scribe = new Scribe(editorNode, {
       allowBlockElements: true
     });

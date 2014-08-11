@@ -4,8 +4,8 @@ describe('CMS Editor', function() {
   beforeEach(function(done) {
     var self = this;
 
-    this.markdownEditorSelector = '#markdown-editor';
-    this.htmlEditorSelector = '#html-editor';
+    this.markdownEditorNodeSelector = '#markdown-editor';
+    this.htmlEditorNodeSelector = '#html-editor';
     this.toolbarNodeSelector = '#toolbar';
 
     requirejs([
@@ -26,11 +26,11 @@ describe('CMS Editor', function() {
       self.sandbox =  sandbox;
       self.helpers = helpers;
       self.toolbarNode = sandbox.querySelector(self.toolbarNodeSelector);
-      self.markdownEditor = sandbox.querySelector(self.markdownEditorSelector);
-      self.htmlEditor = sandbox.querySelector(self.htmlEditorSelector);
+      self.markdownEditorNode = sandbox.querySelector(self.markdownEditorNodeSelector);
+      self.htmlEditorNode = sandbox.querySelector(self.htmlEditorNodeSelector);
 
       self.Editor = Editor;
-      self.markdownEditor.value = content;
+      self.markdownEditorNode.value = content;
       done();
     }, done);
   });
@@ -40,19 +40,21 @@ describe('CMS Editor', function() {
   });
 
   describe('Mode switch', function() {
-    it('allows the mode to be changed to markdown and content updated', function() {
+    it('allows the mode to be changed to markdown', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditor,
+        this.htmlEditorNode,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
-      expect(false).to.be.true;
+
+      editor._setEditingMode('markdown');
+      expect(editor.mode).to.equal('markdown');
     });
 
     it('allows the mode to be changed to html and content updated', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditor,
+        this.htmlEditorNode,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
       expect(false).to.be.true;
@@ -62,40 +64,48 @@ describe('CMS Editor', function() {
   describe('Markdown editor', function() {
     it('allows value to be set', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditor,
+        this.htmlEditorNode,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
-      expect(false).to.be.true;
+      var markdown = '**Dummy**';
+      editor.setMarkdownContent(markdown);
+      expect(this.markdownEditorNode.value).to.equal(markdown);
     });
 
     it('allows value to be read', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditor,
+        this.htmlEditorNode,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
-      expect(false).to.be.true;
+      var markdown = '**Dummy**';
+      this.markdownEditorNode.value = markdown;
+      expect(editor.getMarkdownContent()).to.equal(markdown);
     });
   });
 
   describe('HTML editor', function() {
     it('allows value to be set', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditor,
+        this.htmlEditorNode,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
-      expect(false).to.be.true;
+      var html = '<p>Dummy</p>';
+      editor.setHTMLContent(html);
+      expect(editor.getHTMLContent()).to.equal(html);
     });
 
     it('allows value to be read', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditor,
+        this.htmlEditorNode,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
-      expect(false).to.be.true;
+      var html = '<p>Dummy</p>';
+      editor.setHTMLContent(html);
+      expect(editor.getHTMLContent()).to.equal(html);
     });
   });
 
@@ -103,7 +113,7 @@ describe('CMS Editor', function() {
     it('allows a plugin to be specified and activated', function() {
       var editor = new this.Editor(
         this.htmlEditor,
-        this.markdownEditor,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
       var spy = sinon.spy();
@@ -113,8 +123,8 @@ describe('CMS Editor', function() {
 
     it('should pass the plugin an editor instance as an argument', function() {
       var editor = new this.Editor(
-        this.htmlEditor,
-        this.markdownEditor,
+        this.htmlEditorNode,
+        this.markdownEditorNode,
         this.toolbarNode,
         {});
       var toolbarInstance;
