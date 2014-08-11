@@ -74,19 +74,29 @@ define('editor', [
      * @return {Object}      this
      */
     Editor.prototype.changeEditingMode = function(mode) {
-      var dispatch = {
+      var dispatch,
+          dispatchElse,
+          that = this;
+
+      dispatch = {
         'markdown': function() {
+          that.setMarkdownContent(
+            that._convertHTMLToMarkdown(that.getHTMLContent())
+          );
         },
         'html': function() {
+          that.setHTMLContent(
+            that._convertMarkdownToHTML(that.getMarkdownContent())
+          );
         }
-      },
+      };
+
       dispatchElse = function() {
         throw new Error('That conversion isn\'t supported');
       };
 
       (dispatch[mode] || dispatchElse())();
       this._setEditingMode(mode);
-      // this.setContent();
       return this;
     };
 
@@ -95,8 +105,8 @@ define('editor', [
      * @param {string} src    The parsed source code
      * @param {string} mode   The mode
      */
-    Editor.prototype.setContent = function(src, mode) {
-      // this.modes[this.mode].setContent(src);
+    Editor.prototype.setContent = function(src) {
+      this.modes[this.mode](src);
       return this;
     };
 

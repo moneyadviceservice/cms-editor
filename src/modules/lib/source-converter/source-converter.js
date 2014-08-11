@@ -3,17 +3,16 @@ define('source-converter', [
   'to-markdown'
 ], function (
   marked,
-  toMarkdownConverter
+  toMarkdownFn
 ) {
   'use strict';
-
   return (function() {
     var toHTML = function(src) {
       return marked(src);
     };
 
     var toMarkdown = function(src) {
-      return toMarkdownConverter(src);
+      return toMarkdownFn(src);
     };
 
     return {
