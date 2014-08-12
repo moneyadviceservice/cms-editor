@@ -37,7 +37,7 @@
   </div>
 
   <script src="../bower_components/requirejs/require.js"></script>
-  <script src="../src/main.js"></script>
+  <script src="config.js"></script>
   <script>
     require([
       'editor',
@@ -61,7 +61,7 @@
       editor.setMarkdownContent(content);
       editor.render('html', content);
 
-      function setupEditModeButtons() {
+      (function() {
         var buttonNodes = document.querySelectorAll('.js-switch-mode'),
             i = buttonNodes.length;
 
@@ -72,8 +72,7 @@
               });
             })(buttonNodes[i]);
           }
-      }
-      setupEditModeButtons();
+      })();
     });
   </script>
 </body>
