@@ -10,9 +10,9 @@ define('editor', [
     /**
      * Creates an editor instance
      * @class
-     * @param {Object} htmlEditorNode       DOM node to attach the HTML editor
-     * @param {Object} markdownEditorNode   DOM node to attach the Markdown editor
-     * @param {Object} toolbarNode          DOM node for the HTML editor toolbar
+     * @param {Object} htmlEditorNode       HTML editor node
+     * @param {Object} markdownEditorNode   Markdown editor node
+     * @param {Object} toolbarNode          HTML editor toolbar node
      * @param {Object} options              Options
      */
     var Editor = function(htmlEditorNode, markdownEditorNode, toolbarNode, options) {
