@@ -75,7 +75,7 @@ define('editor', [
      */
     Editor.prototype.changeEditingMode = function(mode) {
       var dispatch,
-          dispatchElse,
+          dispatchDefault,
           that = this;
 
       dispatch = {
@@ -91,11 +91,11 @@ define('editor', [
         }
       };
 
-      dispatchElse = function() {
+      dispatchDefault = function() {
         throw new Error('That conversion isn\'t supported');
       };
 
-      (dispatch[mode] || dispatchElse())();
+      (dispatch[mode] || dispatchDefault())();
       this._setEditingMode(mode);
       return this;
     };
