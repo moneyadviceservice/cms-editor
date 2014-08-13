@@ -22,10 +22,10 @@ We use [Karma](http://karma-runner.github.io) as our test runner.
 With [karma-cli](https://www.npmjs.org/package/karma-cli):
 
 ```sh
-karma start test/karma.conf.js
+npm test
 ```
 
-Without karma-cli:
+Or for the direct command:
 
 ```sh
 ./node_modules/karma/bin/karma start test/karma.conf.js
