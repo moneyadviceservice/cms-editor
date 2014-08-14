@@ -1,31 +1,29 @@
 define('editor-plugin-sticky-toolbar', [], function () {
   return function(toolbarNode, options) {
     return function() {
-      var getViewportOffsetTop,
-          affixToolbar,
-          toolbarOffsetTop,
-          scrolled = false,
-          debounce;
+      var debounce, affixToolbar;
 
-      getViewportOffsetTop = function(node) {
-        var curTop = 0;
+      affixToolbar = (function(){
+        var scrolled = false, toolbarOffsetTop;
+        return function(toolbarNode) {
+          if(!scrolled){
+            toolbarOffsetTop = (function(node) {
+              var curTop = 0;
 
-        while (node.tagName !== 'BODY') {
-          curTop += node.offsetTop;
-          node = node.offsetParent;
-        }
-        return curTop;
-      };
+              while (node.tagName !== 'BODY') {
+                curTop += node.offsetTop;
+                node = node.offsetParent;
+              }
+              return curTop;
+            })(toolbarNode);
 
-      affixToolbar = function (toolbarNode) {
-        if(!scrolled){
-          toolbarOffsetTop = getViewportOffsetTop(toolbarNode);
-          scrolled = true;
-        }
-        toolbarNode.classList.toggle('is-sticky', (toolbarOffsetTop <= window.scrollY));
-      };
+            scrolled = true;
+          }
+          toolbarNode.classList.toggle('is-sticky', (toolbarOffsetTop <= window.scrollY));
+        };
+      })();
 
-      affixToolbar();
+      affixToolbar(toolbarNode);
 
       document.addEventListener('scroll', function () {
         clearTimeout(debounce);
@@ -33,7 +31,6 @@ define('editor-plugin-sticky-toolbar', [], function () {
           affixToolbar(toolbarNode);
         }, 120);
       });
-
 
     };
   };
