@@ -1,10 +1,12 @@
 define('editor-plugin-sticky-toolbar', [], function () {
   return function(toolbarNode, options) {
     return function() {
-      var toolbarOffsetTop,
-          scrolled = false;
+      var getViewportOffsetTop,
+          toolbarOffsetTop,
+          scrolled = false,
+          debounce;
 
-      var getViewportOffsetTop = function(node) {
+      getViewportOffsetTop = function(node) {
         var curTop = 0;
 
         while (node.tagName !== 'BODY') {
@@ -14,13 +16,15 @@ define('editor-plugin-sticky-toolbar', [], function () {
         return curTop;
       };
 
-      // Listen for scroll - TODO Debounce
       document.addEventListener('scroll', function () {
-        if(!scrolled){
-          toolbarOffsetTop = getViewportOffsetTop(toolbarNode);
-          scrolled = true;
-        }
-        toolbarNode.classList.toggle('is-sticky', (toolbarOffsetTop <= window.scrollY));
+        clearTimeout(debounce);
+        debounce = setTimeout(function() {
+          if(!scrolled){
+            toolbarOffsetTop = getViewportOffsetTop(toolbarNode);
+            scrolled = true;
+          }
+          toolbarNode.classList.toggle('is-sticky', (toolbarOffsetTop <= window.scrollY));
+        }, 120);
       });
     };
   };
