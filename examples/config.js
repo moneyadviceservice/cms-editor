@@ -2,6 +2,8 @@ require.config({
   baseUrl : '../',
   paths: {
     // Editor core
+    'config': './src/modules/config/config',
+    'constants': './src/modules/constants/constants',
     'editor': './src/editor',
     'text': './bower_components/requirejs-text/text',
 

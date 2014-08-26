@@ -17,7 +17,9 @@ requirejs.config({
   baseUrl: '/base',
   deps: tests,
   paths: {
-    // Custom deps
+    // Editor
+    'config': 'src/modules/config/config',
+    'constants': 'src/modules/constants/constants',
     'editor': 'src/editor',
     'source-converter': 'src/modules/lib/source-converter/source-converter',
     'editor-plugin-sticky-toolbar': 'src/modules/lib/plugins/editor-sticky-toolbar',

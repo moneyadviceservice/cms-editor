@@ -1,7 +1,11 @@
 define('editor', [
+  'constants',
+  'config',
   'scribe-wrapper',
   'source-converter'
 ], function (
+    constants,
+    config,
     scribe,
     converter
 ) {
@@ -24,7 +28,7 @@ define('editor', [
       this.editor = scribe(this.htmlEditorNode, this.toolbarNode , {
         allowBlockElements : true
       });
-      this.mode = this.options.mode || 'html';
+      this.mode = this.options.mode || config.defaultEditingMode;
       this._init();
     };
 

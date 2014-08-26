@@ -9,12 +9,16 @@ describe('CMS Editor', function() {
     this.toolbarNodeSelector = '#toolbar';
 
     requirejs([
+      'constants',
+      'config',
       'editor',
       'helpers',
       'text!test/helpers/content/content.md',
       'phantom-shims'
     ],
     function (
+      constants,
+      config,
       Editor,
       helpers,
       content,
@@ -47,8 +51,8 @@ describe('CMS Editor', function() {
           this.toolbarNode,
           {});
 
-      editor._setEditingMode('markdown');
-      expect(editor.mode).to.equal('markdown');
+      editor._setEditingMode(constants.MODES.MARKDOWN);
+      expect(editor.mode).to.equal(constants.MODES.MARKDOWN);
     });
 
     it('allows the mode to be changed to html and content updated', function() {
@@ -61,13 +65,13 @@ describe('CMS Editor', function() {
           cleanedHTML;
 
       editor.
-        _setEditingMode('markdown')
+        _setEditingMode(constants.MODES.MARKDOWN)
         .setMarkdownContent('**Dummy**')
-        .changeEditingMode('html');
+        .changeEditingMode(constants.MODES.HTML);
 
       cleanedHTML = editor.getHTMLContent().replace(/\s+/gi,'');
 
-      expect(editor.mode).to.equal('html');
+      expect(editor.mode).to.equal(constants.MODES.HTML);
       expect(cleanedHTML).to.equal('<p><strong>Dummy</strong></p>');
     });
   });
