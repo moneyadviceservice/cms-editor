@@ -3,7 +3,7 @@ define('source-converter', [
   'to-markdown'
 ], function (
   marked,
-  toMarkdownFn
+  tomarkdown
 ) {
   'use strict';
   return (function() {
@@ -12,7 +12,7 @@ define('source-converter', [
     };
 
     var toMarkdown = function(src) {
-      return toMarkdownFn(src);
+      return tomarkdown(src);
     };
 
     return {
