@@ -106,6 +106,7 @@ define('editor', [
       };
 
       (dispatch[mode] || dispatchDefault())();
+
       this._setEditingMode(mode);
       this.events.publish('mode:changed', mode);
 
@@ -154,7 +155,7 @@ define('editor', [
      * @param {string} src Source to convert
      * @return {Object} this
      */
-    Editor.prototype.render = function(mode, src) {
+    Editor.prototype.render = function(mode) {
       this.changeEditingMode(mode);
       return this;
     };
@@ -171,4 +172,5 @@ define('editor', [
     };
 
     return Editor;
-});
+  }
+);
