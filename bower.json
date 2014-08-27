@@ -5,7 +5,9 @@
     "./src/editor.js"
   ],
   "ignore": [
-    "node_modules"
+    "node_modules",
+    ".gitignore",
+    "examples"
   ],
   "dependencies": {
     "requirejs": "2.1.11",
