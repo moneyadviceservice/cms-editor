@@ -13,6 +13,7 @@ require.config({
 
     // Editor plugins
     'editor-plugin-sticky-toolbar': './src/modules/plugins/editor-sticky-toolbar/editor-sticky-toolbar',
+    'editor-plugin-auto-resize-textarea': './src/modules/plugins/editor-auto-resize-textarea/editor-auto-resize-textarea',
 
     // Scribe
     'he': './bower_components/he/he',

@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <title>CMS Editor</title>
   <link rel="stylesheet" href="styles/example.css">
+  <style>
+    .is-active {
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <div class="nav-mode">
-    <button class="js-switch-mode" data-mode="html">Switch to HTML</button>
+    <button class="is-active js-switch-mode" data-mode="html">Switch to HTML</button>
     <button class="js-switch-mode" data-mode="markdown">Switch to Markdown</button>
   </div>
 
@@ -42,10 +47,12 @@
     require([
       'editor',
       'editor-plugin-sticky-toolbar',
+      'editor-plugin-auto-resize-textarea',
       'text!examples/data/content.md'
     ], function (
       Editor,
       editorPluginStickyToolbar,
+      editorPluginAutoResizeTextarea,
       content
     ) {
       var toolbarNode, editor;
@@ -58,6 +65,7 @@
         toolbarNode
       );
       editor.use(editorPluginStickyToolbar(toolbarNode));
+      editor.use(editorPluginAutoResizeTextarea(document.querySelector('.js-markdown-editor'), { minHeight: 300 }));
       editor.setMarkdownContent(content);
       editor.render('html', content);
 
