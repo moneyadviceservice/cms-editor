@@ -9,16 +9,12 @@ describe('CMS Editor', function() {
     this.toolbarNodeSelector = '#toolbar';
 
     requirejs([
-      'constants',
-      'config',
       'editor',
       'helpers',
       'text!test/helpers/content/content.md',
       'phantom-shims'
     ],
     function (
-      constants,
-      config,
       Editor,
       helpers,
       content,
@@ -27,8 +23,6 @@ describe('CMS Editor', function() {
       var sandbox = document.createElement('div');
       sandbox.innerHTML = window.__html__['test/fixtures/default.html'];
       document.body.appendChild(sandbox);
-      self.constants = constants;
-      self.config = config;
       self.sandbox = sandbox;
       self.helpers = helpers;
       self.toolbarNode = sandbox.querySelector(self.toolbarNodeSelector);
@@ -53,8 +47,8 @@ describe('CMS Editor', function() {
           this.toolbarNode,
           {});
 
-      editor._setEditingMode(this.constants.MODES.MARKDOWN);
-      expect(editor.mode).to.equal(this.constants.MODES.MARKDOWN);
+      editor._setEditingMode(editor.constants.MODES.MARKDOWN);
+      expect(editor.mode).to.equal(editor.constants.MODES.MARKDOWN);
     });
 
     it('allows the mode to be changed to html and content updated', function() {
@@ -67,13 +61,13 @@ describe('CMS Editor', function() {
           cleanedHTML;
 
       editor.
-        _setEditingMode(this.constants.MODES.MARKDOWN)
+        _setEditingMode(editor.constants.MODES.MARKDOWN)
         .setMarkdownContent('**Dummy**')
-        .changeEditingMode(this.constants.MODES.HTML);
+        .changeEditingMode(editor.constants.MODES.HTML);
 
       cleanedHTML = editor.getHTMLContent().replace(/\s+/gi,'');
 
-      expect(editor.mode).to.equal(this.constants.MODES.HTML);
+      expect(editor.mode).to.equal(editor.constants.MODES.HTML);
       expect(cleanedHTML).to.equal('<p><strong>Dummy</strong></p>');
     });
   });
