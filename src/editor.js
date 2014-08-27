@@ -1,11 +1,13 @@
 define('editor', [
   'constants',
   'config',
+  'eventsWithPromises',
   'scribe-wrapper',
   'source-converter'
 ], function (
     constants,
     config,
+    events,
     scribe,
     converter
 ) {

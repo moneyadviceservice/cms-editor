@@ -26,7 +26,7 @@ requirejs.config({
     'scribe-wrapper': 'src/modules/lib/scribe-wrapper/scribe-wrapper',
 
     // PhantomJS shims
-    'phantom-shims' : 'test/helpers/shims/phantom-shims',
+    'phantom-shims': 'test/helpers/shims/phantom-shims',
 
     // 3rd-party libraries
     'text': bowerPath + 'requirejs-text/text',
@@ -34,6 +34,8 @@ requirejs.config({
     'marked': bowerPath + 'marked/lib/marked',
     'he': bowerPath + 'he/he',
     'scribe': bowerPath + 'scribe/scribe',
+    'rsvp': bowerPath + 'rsvp/rsvp.amd',
+    'eventsWithPromises': bowerPath + 'eventsWithPromises/src/eventsWithPromises',
     'scribe-plugin-blockquote-command': bowerPath + 'scribe-plugin-blockquote-command/scribe-plugin-blockquote-command',
     'scribe-plugin-formatter-plain-text-convert-new-lines-to-html': bowerPath + 'scribe-plugin-formatter-plain-text-convert-new-lines-to-html/scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
     'scribe-plugin-heading-command': bowerPath + 'scribe-plugin-heading-command/scribe-plugin-heading-command',

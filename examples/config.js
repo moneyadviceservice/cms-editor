@@ -16,6 +16,8 @@ require.config({
 
     // Scribe
     'he': './bower_components/he/he',
+    'rsvp': './bower_components/rsvp/rsvp.amd',
+    'eventsWithPromises': './bower_components/eventsWithPromises/src/eventsWithPromises',
     'scribe': './bower_components/scribe/scribe',
     'scribe-plugin-blockquote-command': './bower_components/scribe-plugin-blockquote-command/scribe-plugin-blockquote-command',
     'scribe-plugin-formatter-plain-text-convert-new-lines-to-html': './bower_components/scribe-plugin-formatter-plain-text-convert-new-lines-to-html/scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
