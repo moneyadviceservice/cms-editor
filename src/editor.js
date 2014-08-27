@@ -20,6 +20,8 @@ define('editor', [
      * @param {Object} options              Options
      */
     var Editor = function(htmlEditorNode, markdownEditorNode, toolbarNode, options) {
+      this.constants = constants;
+      this.config = config;
       this.toolbarNode = toolbarNode;
       this.htmlEditorNode = htmlEditorNode;
       this.markdownEditorNode = markdownEditorNode;
