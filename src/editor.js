@@ -153,6 +153,7 @@ define('editor', [
 
     /**
      * Activates plugin
+     * An instance of the editor is passed to the activated plugin
      * @param  {Object} activatePlugin Plugin to activate
      * @return {Object} this
      */
