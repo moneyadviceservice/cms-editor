@@ -55,6 +55,8 @@
       editorPluginAutoResizeTextarea,
       content
     ) {
+      'use strict';
+
       var toolbarNode, editor;
 
       toolbarNode = document.querySelector('.js-toolbar');
@@ -73,13 +75,13 @@
         var buttonNodes = document.querySelectorAll('.js-switch-mode'),
             i = buttonNodes.length;
 
-          while(i--) {
-            (function(button) {
-              button.addEventListener('click', function() {
-                editor.changeEditingMode(button.dataset.mode);
-              });
-            })(buttonNodes[i]);
-          }
+        while(i--) {
+          (function(button) {
+            button.addEventListener('click', function() {
+              editor.changeEditingMode(button.dataset.mode);
+            });
+          })(buttonNodes[i]);
+        }
       })();
     });
   </script>
