@@ -24,6 +24,7 @@ define('editor', [
     var Editor = function(htmlEditorNode, markdownEditorNode, toolbarNode, options) {
       this.constants = constants;
       this.config = config;
+      this.events = events;
       this.toolbarNode = toolbarNode;
       this.htmlEditorNode = htmlEditorNode;
       this.markdownEditorNode = markdownEditorNode;
@@ -42,6 +43,7 @@ define('editor', [
      */
     Editor.prototype._init = function() {
       this.changeEditingMode(this.mode);
+      this.events.publish('editor:initialised');
       return this;
     };
 
@@ -105,6 +107,8 @@ define('editor', [
 
       (dispatch[mode] || dispatchDefault())();
       this._setEditingMode(mode);
+      this.events.publish('mode:changed', mode);
+
       return this;
     };
 
