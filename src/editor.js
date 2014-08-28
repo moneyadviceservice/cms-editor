@@ -128,6 +128,7 @@ define('editor', [
      */
     Editor.prototype.setHTMLContent = function(html) {
       this.editor.setContent(html);
+      this.events.publish('content:updated', constants.MODES.HTML);
       return this;
     };
 
@@ -146,6 +147,7 @@ define('editor', [
      */
     Editor.prototype.setMarkdownContent = function(markdown) {
       this.markdownEditorNode.value = markdown;
+      this.events.publish('content:updated', constants.MODES.MARKDOWN);
       return this;
     };
 
