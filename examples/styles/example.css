@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: -moz-border-box;
+  -webkit-box-sizing: -webkit-border-box;
+}
+body {
+  margin: 0;
+  padding: 0 20px;
+}
+
+/**
+ * Layout
+ */
+
+
+/**
+ * Toolbar
+ */
+
+.toolbar.is-sticky {
+  background: white;
+  position: fixed;
+  top: 0;
+}
+
+/**
+ * Editor
+ */
+
+.editor {
+  float: left;
+  padding-left: 10px;
+  width: 50%;
+}
+
+.editor:first-child {
+  padding-left: 0;
+}
+
+.editor__content {
+  background: white;
+  border: 1px solid #000;
+  min-height: 400px;
+  width: 100%;
+}
+
+/**
+ * Nav mode buttons
+ */
+
+.nav-mode {
+  clear: both;
+  text-align: center;
+  padding: 20px;
+}

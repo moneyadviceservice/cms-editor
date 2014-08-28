@@ -5,7 +5,8 @@
     "bower": "^1.2"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "test": "./node_modules/karma/bin/karma start test/karma.conf.js"
   },
   "devDependencies": {
     "karma": "^0.12.2",
@@ -17,6 +18,7 @@
     "chai": "^1.9.1",
     "karma-chai": "^0.1.0",
     "sinon": "^1.9.0",
-    "karma-sinon": "^1.0.3"
+    "karma-sinon": "^1.0.3",
+    "jsdoc": "^3.3.0-alpha9"
   }
 }
