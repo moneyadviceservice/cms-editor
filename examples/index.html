@@ -44,16 +44,20 @@
   <script src="../bower_components/requirejs/require.js"></script>
   <script src="../src/main.js"></script>
   <script>
-    require([
-      'editor',
-      'editor-plugin-sticky-toolbar',
-      'editor-plugin-auto-resize-textarea',
-      'text!examples/data/content.md'
+    require({
+      paths: {
+        'eventsWithPromises' : '../../bower_components/eventsWithPromises/src/eventsWithPromises',
+        'rsvp' : '../../bower_components/rsvp/rsvp'
+      }
+    },
+    [
+      '../src/app/editor',
+      '../src/app/plugins/editor-sticky-toolbar/editor-sticky-toolbar',
+      '../src/app/plugins/editor-auto-resize-textarea/editor-auto-resize-textarea'
     ], function (
       Editor,
       editorPluginStickyToolbar,
-      editorPluginAutoResizeTextarea,
-      content
+      editorPluginAutoResizeTextarea
     ) {
       'use strict';
 
@@ -68,7 +72,7 @@
       );
       editor.use(editorPluginStickyToolbar(toolbarNode));
       editor.use(editorPluginAutoResizeTextarea(document.querySelector('.js-markdown-editor'), { minHeight: 300 }));
-      editor.setMarkdownContent(content);
+      editor.setMarkdownContent('#hello');
       editor.render('html', content);
 
       (function() {
