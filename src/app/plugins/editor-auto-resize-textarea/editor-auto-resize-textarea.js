@@ -1,4 +1,4 @@
-define('editor-plugin-auto-resize-textarea', [], function () {
+define([], function () {
   'use strict';
   return function(markdownEditorNode, options) {
     return function(editor) {

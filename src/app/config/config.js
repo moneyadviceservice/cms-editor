@@ -1,5 +1,5 @@
-define('config', [
-  'constants'
+define([
+  '../constants/constants'
 ], function (
     constants
 ) {

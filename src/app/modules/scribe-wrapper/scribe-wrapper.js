@@ -1,4 +1,4 @@
-define('scribe-wrapper', [
+define([
   'scribe',
   'scribe-plugin-blockquote-command',
   'scribe-plugin-formatter-plain-text-convert-new-lines-to-html',
