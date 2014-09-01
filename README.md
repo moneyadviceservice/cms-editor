@@ -48,3 +48,4 @@ Without:
 ```sh
 ./node_modules/.bin/jsdoc src/editor.js
 ```
+
