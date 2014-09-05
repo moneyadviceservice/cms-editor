@@ -42,13 +42,13 @@
   </div>
 
   <script src="../bower_components/requirejs/require.js"></script>
-  <script src="local-config.js"></script>
+  <script src="../src/main.js"></script>
   <script>
     require([
       '../src/app/app',
       '../src/app/plugins/editor-sticky-toolbar/editor-sticky-toolbar',
       '../src/app/plugins/editor-auto-resize-textarea/editor-auto-resize-textarea',
-      'text!data/content.md'
+      'text!../examples/data/content.md'
     ], function (
       Editor,
       editorPluginStickyToolbar,
