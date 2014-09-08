@@ -1,4 +1,4 @@
-define('constants', function() {
+define(function() {
   'use strict';
   return Object.freeze({
     CLASSES : {

@@ -1,4 +1,4 @@
-define('config', [
+define([
   'constants'
 ], function (
     constants

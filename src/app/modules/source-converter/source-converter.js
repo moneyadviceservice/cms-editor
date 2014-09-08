@@ -1,4 +1,4 @@
-define('source-converter', [
+define([
   'marked',
   'to-markdown'
 ], function (

@@ -1,15 +1,15 @@
-define('editor', [
+define([
   'constants',
   'config',
-  'eventsWithPromises',
   'scribe-wrapper',
-  'source-converter'
+  'source-converter',
+  'eventsWithPromises'
 ], function (
     constants,
     config,
-    events,
     scribe,
-    converter
+    converter,
+    events
 ) {
     'use strict';
 

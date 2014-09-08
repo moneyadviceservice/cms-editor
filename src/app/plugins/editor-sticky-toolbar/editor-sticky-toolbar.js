@@ -1,4 +1,4 @@
-define('editor-plugin-sticky-toolbar', [], function () {
+define([], function () {
   return function(toolbarNode, options) {
     return function() {
       var debounce, affixToolbar;

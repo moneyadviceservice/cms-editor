@@ -2,18 +2,17 @@ require.config({
   baseUrl : '../',
   paths: {
     // Editor core
-    'config': './src/modules/config/config',
-    'constants': './src/modules/constants/constants',
-    'editor': './src/editor',
+    'config': './src/app/config/config',
+    'constants': './src/app/constants/constants',
     'text': './bower_components/requirejs-text/text',
 
     // Editor modules
-    'scribe-wrapper': './src/modules/lib/scribe-wrapper/scribe-wrapper',
-    'source-converter': './src/modules/lib/source-converter/source-converter',
+    'scribe-wrapper': './src/app/modules/scribe-wrapper/scribe-wrapper',
+    'source-converter': './src/app/modules/source-converter/source-converter',
 
     // Editor plugins
-    'editor-plugin-sticky-toolbar': './src/modules/plugins/editor-sticky-toolbar/editor-sticky-toolbar',
-    'editor-plugin-auto-resize-textarea': './src/modules/plugins/editor-auto-resize-textarea/editor-auto-resize-textarea',
+    'editor-plugin-sticky-toolbar': './src/app/plugins/editor-sticky-toolbar/editor-sticky-toolbar',
+    'editor-plugin-auto-resize-textarea': './src/app/plugins/editor-auto-resize-textarea/editor-auto-resize-textarea',
 
     // Scribe
     'he': './bower_components/he/he',
