@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "requirejs": "2.1.11",
-    "scribe": "0.1.17",
+    "scribe": "0.1.19",
     "scribe-plugin-blockquote-command": "0.1.0",
     "scribe-plugin-curly-quotes": "0.1.2",
     "scribe-plugin-formatter-plain-text-convert-new-lines-to-html": "0.1.1",
