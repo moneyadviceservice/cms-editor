@@ -53,7 +53,7 @@ define([
     scribe.use(scribePluginKeyboardShortcuts(commandsToKeyboardShortcutsMap));
     scribe.use(scribePluginFormatterPlainTextConvertNewLinesToHtml());
     scribe.use(scribePluginSanitizer({
-      tags: {
+      tags : options && options.sanitizer? options.sanitizer.tags : {
         p: {},
         br: {},
         b: {},
@@ -70,11 +70,7 @@ define([
         h3: {},
         h4: {},
         h5: {},
-        h6: {},
-        img: {
-          src: true
-        },
-        pre: {}
+        h6: {}
       }
     }));
 

@@ -7,7 +7,7 @@ require.config({
     'text': './bower_components/requirejs-text/text',
 
     // Editor modules
-    'scribe-wrapper': './src/app/modules/scribe-wrapper/scribe-wrapper',
+    'editor-lib-wrapper': './src/app/modules/editor-lib-wrapper/editor-lib-wrapper',
     'source-converter': './src/app/modules/source-converter/source-converter',
 
     // Editor plugins

@@ -64,7 +64,31 @@
       editor = new Editor(
         document.querySelector('.js-html-editor'),
         document.querySelector('.js-markdown-editor'),
-        toolbarNode
+        toolbarNode,
+        {
+          editorLibOptions: {
+            sanitizer: {
+              tags: {
+                p: {},
+                b: {},
+                strong: {},
+                i: {},
+                strike: {},
+                blockquote: {},
+                ol: {},
+                ul: {},
+                li: {},
+                a: { href: true },
+                h1: {},
+                h2: {},
+                h3: {},
+                h4: {},
+                h5: {},
+                h6: {}
+              }
+            }
+          }
+        }
       );
       editor.use(editorPluginStickyToolbar(toolbarNode));
       editor.use(editorPluginAutoResizeTextarea(document.querySelector('.js-markdown-editor'), { minHeight: 300 }));

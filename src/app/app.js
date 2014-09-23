@@ -1,13 +1,13 @@
 define([
   'constants',
   'config',
-  'scribe-wrapper',
+  'editor-lib-wrapper',
   'source-converter',
   'eventsWithPromises'
 ], function (
     constants,
     config,
-    scribe,
+    editorLib,
     converter,
     events
 ) {
@@ -29,10 +29,9 @@ define([
       this.htmlEditorNode = htmlEditorNode;
       this.markdownEditorNode = markdownEditorNode;
       this.options = options || {};
+      this.editorLibOptions = this.options.editorLibOptions || {};
       this.converter = converter;
-      this.editor = scribe(this.htmlEditorNode, this.toolbarNode , {
-        allowBlockElements : true
-      });
+      this.editor = editorLib(this.htmlEditorNode, this.toolbarNode, this.options.editorLibOptions);
       this.mode = this.options.mode || config.defaultEditingMode;
       this._init();
     };

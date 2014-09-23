@@ -18,12 +18,12 @@ requirejs.config({
   deps: tests,
   paths: {
     // Editor
-    'config': 'src/modules/config/config',
-    'constants': 'src/modules/constants/constants',
-    'editor': 'src/editor',
-    'source-converter': 'src/modules/lib/source-converter/source-converter',
-    'editor-plugin-sticky-toolbar': 'src/modules/lib/plugins/editor-sticky-toolbar',
-    'scribe-wrapper': 'src/modules/lib/scribe-wrapper/scribe-wrapper',
+    'config': 'src/app/config/config',
+    'constants': 'src/app/constants/constants',
+    'editor': 'src/app/app',
+    'source-converter': 'src/app/modules/source-converter/source-converter',
+    'editor-plugin-sticky-toolbar': 'src/app/modules/plugins/editor-sticky-toolbar',
+    'editor-lib-wrapper': 'src/app/modules/editor-lib-wrapper/editor-lib-wrapper',
 
     // PhantomJS shims
     'phantom-shims': 'test/helpers/shims/phantom-shims',
