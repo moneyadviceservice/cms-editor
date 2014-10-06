@@ -6,7 +6,8 @@ define([
   'scribe-plugin-keyboard-shortcuts',
   'scribe-plugin-link-prompt-command',
   'scribe-plugin-sanitizer',
-  'scribe-plugin-toolbar'
+  'scribe-plugin-toolbar',
+  'scribe-plugin-insertsnippet-command'
 ], function (
     Scribe,
     scribePluginBlockquoteCommand,
@@ -15,7 +16,8 @@ define([
     scribePluginKeyboardShortcuts,
     scribePluginLinkPromptCommand,
     scribePluginSanitizer,
-    scribePluginToolbar
+    scribePluginToolbar,
+    scribePluginInsertSnippetCommand
 ) {
   return function(editorNode, toolbarNode, options) {
     'use strict';
@@ -52,6 +54,7 @@ define([
     scribe.use(scribePluginToolbar(toolbarNode));
     scribe.use(scribePluginKeyboardShortcuts(commandsToKeyboardShortcutsMap));
     scribe.use(scribePluginFormatterPlainTextConvertNewLinesToHtml());
+    scribe.use(scribePluginInsertSnippetCommand());
     scribe.use(scribePluginSanitizer({
       tags : options && options.sanitizer? options.sanitizer.tags : {
         p: {},
