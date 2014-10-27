@@ -14,6 +14,9 @@ require.config({
     'editor-plugin-sticky-toolbar': './src/app/plugins/editor-sticky-toolbar/editor-sticky-toolbar',
     'editor-plugin-auto-resize-textarea': './src/app/plugins/editor-auto-resize-textarea/editor-auto-resize-textarea',
 
+    // Shims
+    'mutationobserver-shim': './src/app/shims/mutationobserver.min',
+
     // Scribe
     'he': './bower_components/he/he',
     'rsvp': './bower_components/rsvp/rsvp.amd',
