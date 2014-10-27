@@ -3,13 +3,15 @@ define([
   'config',
   'editor-lib-wrapper',
   'source-converter',
-  'eventsWithPromises'
+  'eventsWithPromises',
+  'mutationobserver-shim'
 ], function (
     constants,
     config,
     editorLib,
     converter,
-    events
+    events,
+    MutationObserver
 ) {
     'use strict';
 

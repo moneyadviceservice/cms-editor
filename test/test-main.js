@@ -25,6 +25,9 @@ requirejs.config({
     'editor-plugin-sticky-toolbar': 'src/app/modules/plugins/editor-sticky-toolbar',
     'editor-lib-wrapper': 'src/app/modules/editor-lib-wrapper/editor-lib-wrapper',
 
+    // Shims
+    'mutationobserver-shim': './src/app/shims/mutationobserver.min',
+
     // PhantomJS shims
     'phantom-shims': 'test/helpers/shims/phantom-shims',
 
