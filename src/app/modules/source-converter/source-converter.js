@@ -8,6 +8,9 @@ define([
   'use strict';
   return (function() {
     var toHTML = function(src) {
+      marked.setOptions({
+        breaks: true
+      });
       return marked(src);
     };
 
