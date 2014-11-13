@@ -10,7 +10,7 @@ define([
     var toHTML = function(src) {
       marked.setOptions({
         breaks: true,
-        table: false
+        tables: false
       });
       return marked(src);
     };
