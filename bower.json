@@ -22,7 +22,7 @@
     "scribe-plugin-sanitizer": "0.1.4",
     "scribe-plugin-toolbar": "0.1.4",
     "marked": "~0.3.2",
-    "to-markdown": "git://github.com/ourmaninamsterdam/to-markdown.git#2d1d8c12bf707bf9c8a63bd2e2f94e149f310178",
+    "to-markdown": "git@github.com:ourmaninamsterdam/to-markdown.git",
     "eventsWithPromises": "https://github.com/jonnywyatt/eventsWithPromises.git#master"
   },
   "devDependencies": {
