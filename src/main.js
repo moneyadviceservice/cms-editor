@@ -36,7 +36,7 @@ require.config({
 
     // Converters
     'marked': './bower_components/marked/lib/marked',
-    'to-markdown' : './bower_components/to-markdown/src/to-markdown'
+    'to-markdown' : './bower_components/to-markdown/dist/to-markdown'
   },
   shim: {
     'to-markdown' : {
