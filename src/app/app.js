@@ -65,7 +65,7 @@ define([
      * @return {string}
      */
     Editor.prototype._convertMarkdownToHTML = function(markdown) {
-      return this.converter.toHTML(markdown);
+      return this.converter.toHTML(markdown).replace(/\n/gi,'');
     };
 
     /**
