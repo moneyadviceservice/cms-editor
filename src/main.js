@@ -18,7 +18,6 @@ require.config({
     'mutationobserver-shim': './src/app/shims/mutationobserver.min',
 
     // Scribe
-    'he': './bower_components/he/he',
     'rsvp': './bower_components/rsvp/rsvp',
     'eventsWithPromises': './bower_components/eventsWithPromises/src/eventsWithPromises',
     'scribe': './bower_components/scribe/scribe',
@@ -36,11 +35,6 @@ require.config({
 
     // Converters
     'marked': './bower_components/marked/lib/marked',
-    'to-markdown' : './bower_components/to-markdown/src/to-markdown'
-  },
-  shim: {
-    'to-markdown' : {
-      deps : ['he']
-    }
+    'to-markdown' : './bower_components/to-markdown/dist/to-markdown'
   }
 });
