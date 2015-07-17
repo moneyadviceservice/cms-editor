@@ -50,8 +50,10 @@ describe('CMS Editor', function() {
       editor._setEditingMode(editor.constants.MODES.MARKDOWN);
       expect(editor.mode).to.equal(editor.constants.MODES.MARKDOWN);
     });
+  });
 
-    it('allows the mode to be changed to html and content updated', function() {
+  describe('Mode switch to html', function() {
+    it('updates content', function() {
       var editor = new this.Editor(
           this.htmlEditorNode,
           this.markdownEditorNode,
@@ -69,6 +71,46 @@ describe('CMS Editor', function() {
 
       expect(editor.mode).to.equal(editor.constants.MODES.HTML);
       expect(cleanedHTML).to.equal('<p><strong>Dummy</strong></p>');
+    });
+
+    it('titlifys links', function() {
+      var editor = new this.Editor(
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          html;
+
+      editor.
+        _setEditingMode(editor.constants.MODES.MARKDOWN)
+        .setMarkdownContent('[a link](https://www.example.com)')
+        .changeEditingMode(editor.constants.MODES.HTML);
+
+      html = editor.getHTMLContent();
+
+      expect(editor.mode).to.equal(editor.constants.MODES.HTML);
+      expect(html).to.equal('<p><a href="https://www.example.com" title="https://www.example.com">a link</a></p>');
+    });
+  });
+
+  describe('Mode switch to markdown', function() {
+    it('updates content', function() {
+      var editor = new this.Editor(
+          this.htmlEditorNode,
+          this.markdownEditorNode,
+          this.toolbarNode,
+          {}),
+          markdown;
+
+      editor.
+        _setEditingMode(editor.constants.MODES.HTML)
+        .setHTMLContent('<p><strong>Dummy</strong></p>')
+        .changeEditingMode(editor.constants.MODES.MARKDOWN);
+
+      markdown = editor.getMarkdownContent();
+
+      expect(editor.mode).to.equal(editor.constants.MODES.MARKDOWN);
+      expect(markdown).to.equal('**Dummy**');
     });
   });
 
